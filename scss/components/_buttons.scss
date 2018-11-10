@@ -1,0 +1,19 @@
+// ======================================
+//  Button Styles
+// ======================================
+
+.btn {
+	cursor: pointer;
+}
+
+.btn-search {
+	i {
+		font-size: 1rem;
+	}
+	padding: 9px 11px;
+	background-image: $icn-search-bg-color;
+	color: $icn-search-color;
+	border: none;
+	border-bottom: 2px solid $icn-search-brdr-color;
+	border-right: 2px solid $icn-search-brdr-color;
+}

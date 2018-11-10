@@ -1,0 +1,38 @@
+// ======================================
+//  Navigation Components
+// ======================================
+
+.main-nav {
+  background-image: $nav-bg-color;
+  color: $c-white;
+  text-align: center;
+  width: 90px;
+  height: calc(100vh - 58px);
+  position: fixed;
+
+  ul li > a {
+    display: flex;
+    padding: 11.5px 0;
+    flex-direction: column;
+    align-items: center;
+    i {
+      font-size: 0.9rem;
+    }
+    span {
+      font-size: 0.65rem;
+      font-weight: bold;
+    }
+    &:hover {
+      background: $nav-item-hover-bg;
+      color: $nav-item-hover-text;
+    }
+  }
+
+  li:first-child > a{ 
+    background: $nav-item-hover-bg;
+    &:hover {
+      color: $nav-item-hover-text;
+    }
+  }
+
+}

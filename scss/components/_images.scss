@@ -1,0 +1,11 @@
+// ======================================
+//  Image Styles
+// ======================================
+
+.img-logo {
+	background-image: url('#{$logo-path}/logo.png');
+	background-repeat: no-repeat;
+	width: 88px;
+	height: 29px;
+	margin-right: auto;
+}

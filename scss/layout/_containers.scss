@@ -1,0 +1,30 @@
+// ======================================
+//  Layout Container Styles
+// ======================================
+
+#header {
+  height: 58px;
+  .l-header-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 0px 15px;
+    position: fixed;
+    background: $c-white;
+  }
+}
+
+#l-main-container {
+  display: flex;
+
+  .l-main-nav {
+    width: 90px;
+  }
+
+}
+
+#l-main-content {
+  display: flex;
+  width: calc(100% - 90px);
+}

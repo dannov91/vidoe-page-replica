@@ -1,0 +1,19 @@
+// ======================================
+//  Icon Styles
+// ======================================
+
+.icn {
+	color: $icn-color;
+	font-size: 0.75rem;
+	padding: 20px 10px;
+	position: relative;
+	&:hover {
+		color: rgba(0,0,0,.7);
+		cursor: pointer;
+	}
+}
+
+.icn-menu {
+	color: $icn-menu-color;
+	margin: 0 0 0 13px;
+}
