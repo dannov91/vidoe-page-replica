@@ -1,0 +1,48 @@
+// ======================================
+// Component - Card Styles
+// ======================================
+
+// Card Titles Styling
+
+.title {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	color: $acadia;
+	margin-bottom: 13px;
+}
+
+.title-categories {
+	&> i {
+		border-radius: 50%;
+	}
+}
+
+// Card Styling
+
+.card {
+	background: $card-bg-color;
+	box-shadow: 0 0 6px #ececec;
+	display: flex;
+	justify-content: center;
+	padding: 23px 11px;
+	&-container {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		&:hover,
+		&:hover .channel-views {
+			color: rgba(0,0,0,.7);
+			cursor: pointer;
+		}
+	}
+	.channel-name {
+		margin-top: 5px;
+		font-weight: bold;
+	}
+	.channel-views {
+		color: $card-views-txt-color;
+		font-size: 0.6875rem;
+	}
+
+}

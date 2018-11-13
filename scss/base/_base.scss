@@ -24,8 +24,16 @@ body {
 }
 
 h1,
-h2 {
-  /*font-family: $font-stack-secondary;*/
+h2,
+h6 {
+  margin: 0;
+  font-size: 1rem;
+  color: $headings-txt-color;
+  font-weight: 600;
+}
+
+h6 {
+  font-size: 0.8125rem;
 }
 
 p {

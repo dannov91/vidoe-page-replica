@@ -11,7 +11,7 @@
     align-items: center;
     padding: 0px 15px;
     position: fixed;
-    background: $c-white;
+    background: $white-pure;
   }
 }
 
@@ -25,6 +25,20 @@
 }
 
 #l-main-content {
-  display: flex;
   width: calc(100% - 90px);
+}
+
+.l-main-sections {
+  padding: 17px;
+  background: $main-sections-bg-color;
+
+  //Channel Categories Display
+  .section-categories li:not(:first-of-type) {
+    display: none;
+  }
+
+  //Relative Positioning for Categories' Arrows
+  .section-categories {
+    position: relative;
+  }
 }

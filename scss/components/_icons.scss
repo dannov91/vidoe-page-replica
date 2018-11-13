@@ -2,8 +2,10 @@
 //  Icon Styles
 // ======================================
 
+// General Class Styling
+
 .icn {
-	color: $icn-color;
+	color: $icn-standard-txt-color;
 	font-size: 0.75rem;
 	padding: 20px 10px;
 	position: relative;
@@ -13,7 +15,35 @@
 	}
 }
 
+// Specific Class Styling
+
 .icn-menu {
-	color: $icn-menu-color;
+	color: $icn-menu-txt-color;
 	margin: 0 0 0 13px;
+}
+
+.icn-dotted {
+	padding: 1px 4px;
+	color: $wild-watermelon;
+	background: $icn-dotted-bg-color;
+	border-radius: 50%;
+	box-shadow: 0 0 6px #ececec;
+	font-size: 0.8125rem;
+}
+
+.icn-arrow {
+	padding: 6px 12px;
+	position: absolute;
+	top: 96px;
+	background: rgb(219, 219, 219);
+	transition: background 0.25s;
+	border-radius: 50%;
+	color: $icn-arrows-txt-color;
+	font-size: 0.8125rem;
+	&-left {
+		left: 2%;
+	}
+	&-right {
+		right: 2%;
+	}
 }
