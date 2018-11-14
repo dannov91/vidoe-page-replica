@@ -8,8 +8,10 @@ $acadia                   : #333;
 $black-pure               : black;
 $black-050-opacity        : rgba(0,0,0,.5);
 $blue-charcoal            : rgb(35, 39, 43);
+$dark-gray				  : #acacac;
 $gray-stone               : #fafafa;
 $gull-grey                : rgb(155, 168, 170);
+$shamrock				  : #4EDA92;
 $suva-grey                : #888;
 $white-pure               : white;
 $white-smoke              : #ececec;
@@ -23,17 +25,22 @@ $gradient-icn-search      : linear-gradient(180deg, rgb(125, 125, 125) 1%, rgb(5
 
 //--Text Colors
 $headings-txt-color       : $acadia;
-$icn-standard-txt-color   : $black-050-opacity;
+$icn-t1-txt-color  		  : $black-050-opacity;
+$video-stats-txt-color    : $dark-gray;
 $icn-menu-txt-color       : $gull-grey;
-$icn-dotted-txt-color     : $wild-watermelon;
+$video-tag-txt-color	  : $shamrock;
+$icn-t2-txt-color   	  : $wild-watermelon;
 $card-views-txt-color     : $wild-watermelon;
+$video-name-txt-color	  : $wild-watermelon;
 $badge-txt-color          : $white-pure;
 $btn-search-txt-color     : $white-pure;
 $icn-arrows-txt-color     : $white-pure;
+$icn-t4-txt-color		  : $white-pure;
 $main-nav-txt-color       : $white-pure;
 
 
 //--Background Colors
+$dark-screen-bg-color	  : $black-pure;
 $main-nav-bg-color        : $gradient-main-nav;
 $btn-search-bg-color      : $gradient-icn-search;
 $main-sections-bg-color   : $gray-stone;

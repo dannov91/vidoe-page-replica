@@ -46,3 +46,63 @@
 	}
 
 }
+
+//Video Cards Styling
+
+.video {
+
+	box-shadow: 0 0 11px #ececec;
+	margin-bottom: 30px;
+
+	a {
+		position: relative;
+		width: 100%;
+		margin-bottom: -2px;
+	}
+
+	&-container {
+		width: 100%;
+	}
+	.info-container {
+		background: $card-bg-color;
+		padding: 12px;
+	}
+	&-name:hover {
+		color: $video-name-txt-color;
+	}
+	&-tag {
+		font-size: 0.6875rem;
+		color: $video-tag-txt-color;
+		margin-bottom: 5px;
+	}
+	&-stats {
+		font-size: 0.6875rem;
+		color: $video-stats-txt-color;
+	}
+}
+
+// Dark Screen
+
+.dark {
+	width: 100%;
+	background: rgba($dark-screen-bg-color, 0.35);
+	position: absolute;
+	top: 0;
+	opacity: 0;
+	transition: opacity 0.25s;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	a:hover & {
+		opacity: 1;
+	}
+
+}
+
+
+
+
+
+
+
+

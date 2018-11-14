@@ -9,6 +9,7 @@
 	font-weight: bold;
 	border-radius: 4px;
 	position: absolute;
+	z-index: 10;
 }
 	
 // Badge Colors
@@ -25,4 +26,14 @@
 .badge-items {
 	top: 11px;
 	left: 13px;
+}
+
+.badge-timer {
+	bottom: 8px;
+	right: 7px;
+	font-size: 0.6875rem;
+	opacity: 0.75;
+	a:hover & {
+		opacity: 1;
+	}
 }

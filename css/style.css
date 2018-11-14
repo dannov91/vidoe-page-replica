@@ -20,7 +20,6 @@ ul li {
 body {
   /*color: $color-text;*/
   font-size: 1rem;
-  line-height: 1.5;
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
@@ -36,6 +35,12 @@ h6 {
 
 h6 {
   font-size: 0.8125rem;
+  margin-bottom: 7px;
+}
+
+hr {
+  border: 0.5px solid rgba(0, 0, 0, 0.1);
+  margin-top: 1.95rem;
 }
 
 p {
@@ -45,9 +50,15 @@ p {
 a {
   color: inherit;
   text-decoration: none;
+  display: inline-block;
+  height: 100%;
 }
 a:hover {
   /*color: $color-secondary; */
+}
+
+img {
+  display: block;
 }
 
 #header {
@@ -101,24 +112,21 @@ a:hover {
   font-size: 1rem;
 }
 
-.icn {
+.icn-t1 {
   color: rgba(0, 0, 0, 0.5);
   font-size: 0.75rem;
   padding: 20px 10px;
   position: relative;
 }
-.icn:hover {
+.icn-t1:hover {
   color: rgba(0, 0, 0, 0.7);
   cursor: pointer;
 }
 
-.icn-menu {
-  color: #9ba8aa;
-  margin: 0 0 0 13px;
-}
-
-.icn-dotted {
-  padding: 1px 4px;
+.icn-t2 i {
+  padding: 4px;
+  width: 21px;
+  text-align: center;
   color: #ff516b;
   background: white;
   border-radius: 50%;
@@ -126,8 +134,31 @@ a:hover {
   font-size: 0.8125rem;
 }
 
+.icn-t3 i {
+  color: #4EDA92;
+  background: white;
+  border-radius: 50%;
+  box-shadow: 0 0 6px #ececec;
+  font-size: 0.8125rem;
+}
+
+.icn-t4 i {
+  color: rgba(255, 255, 255, 0.65);
+  opacity: 0;
+  transition: transform 0.5s, opacity 0.25s;
+}
+.dark:hover .icn-t4 i {
+  transform: scale(2.5);
+  opacity: 1;
+}
+
+.icn-menu {
+  color: #9ba8aa;
+  margin: 0 0 0 13px;
+}
+
 .icn-arrow {
-  padding: 6px 12px;
+  padding: 9px 12px;
   position: absolute;
   top: 96px;
   background: #dbdbdb;
@@ -135,12 +166,22 @@ a:hover {
   border-radius: 50%;
   color: white;
   font-size: 0.8125rem;
+  cursor: pointer;
 }
 .icn-arrow-left {
   left: 2%;
 }
 .icn-arrow-right {
   right: 2%;
+}
+
+.sort {
+  font-size: 0.8125rem;
+  color: #ff516b;
+}
+.sort:hover, .sort:hover i {
+  color: rgba(0, 0, 0, 0.7);
+  cursor: pointer;
 }
 
 .img-logo {
@@ -216,6 +257,7 @@ a:hover {
   font-weight: bold;
   border-radius: 4px;
   position: absolute;
+  z-index: 10;
 }
 
 .badge-red {
@@ -229,6 +271,16 @@ a:hover {
 .badge-items {
   top: 11px;
   left: 13px;
+}
+
+.badge-timer {
+  bottom: 8px;
+  right: 7px;
+  font-size: 0.6875rem;
+  opacity: 0.75;
+}
+a:hover .badge-timer {
+  opacity: 1;
 }
 
 .main-nav {
@@ -318,6 +370,50 @@ a:hover {
 .card .channel-views {
   color: #ff516b;
   font-size: 0.6875rem;
+}
+
+.video {
+  box-shadow: 0 0 11px #ececec;
+  margin-bottom: 30px;
+}
+.video a {
+  position: relative;
+  width: 100%;
+  margin-bottom: -2px;
+}
+.video-container {
+  width: 100%;
+}
+.video .info-container {
+  background: white;
+  padding: 12px;
+}
+.video-name:hover {
+  color: #ff516b;
+}
+.video-tag {
+  font-size: 0.6875rem;
+  color: #4EDA92;
+  margin-bottom: 5px;
+}
+.video-stats {
+  font-size: 0.6875rem;
+  color: #acacac;
+}
+
+.dark {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.35);
+  position: absolute;
+  top: 0;
+  opacity: 0;
+  transition: opacity 0.25s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+a:hover .dark {
+  opacity: 1;
 }
 
 /*# sourceMappingURL=style.css.map */
