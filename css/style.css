@@ -62,7 +62,10 @@ img {
 }
 
 #header {
-  height: 58px;
+  height: 59px;
+  background: white;
+  position: relative;
+  z-index: 1000;
 }
 #header .l-header-container {
   width: 100%;
@@ -76,6 +79,8 @@ img {
 
 #l-main-container {
   display: flex;
+  position: relative;
+  z-index: 1;
 }
 #l-main-container .l-main-nav {
   width: 90px;
@@ -115,7 +120,7 @@ img {
 .icn-t1 {
   color: rgba(0, 0, 0, 0.5);
   font-size: 0.75rem;
-  padding: 20px 10px;
+  padding: 23px 10px;
   position: relative;
 }
 .icn-t1:hover {

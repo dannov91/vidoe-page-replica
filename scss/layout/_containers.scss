@@ -3,7 +3,10 @@
 // ======================================
 
 #header {
-  height: 58px;
+  height: 59px;
+  background: $header-bg-color;
+  position: relative;
+  z-index: 1000;
   .l-header-container {
     width: 100%;
     display: flex;
@@ -17,6 +20,8 @@
 
 #l-main-container {
   display: flex;
+  position: relative;
+  z-index: 1;
 
   .l-main-nav {
     width: 90px;
