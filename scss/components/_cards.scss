@@ -12,13 +12,7 @@
 	margin-bottom: 13px;
 }
 
-.title-categories {
-	&> i {
-		border-radius: 50%;
-	}
-}
-
-// Card Styling
+// Card General Styling
 
 .card {
 	background: $card-bg-color;
@@ -26,6 +20,9 @@
 	display: flex;
 	justify-content: center;
 	padding: 23px 11px;
+	margin-bottom: 30px;
+	border-radius: 4px;
+	position: relative;
 	&-container {
 		display: flex;
 		flex-direction: column;
@@ -40,14 +37,40 @@
 		margin-top: 5px;
 		font-weight: bold;
 	}
-	.channel-views {
-		color: $card-views-txt-color;
-		font-size: 0.6875rem;
-	}
 
 }
 
-//Video Cards Styling
+// Card - Categories Specific Styling
+
+.channel-views {
+	color: $card-views-txt-color;
+	font-size: 0.6875rem;
+}
+
+// Card - Popular Specific Styling
+
+.channel-subs {
+	color: $video-stats-txt-color;
+	font-size: 0.6875rem;
+}
+
+.section-popular {
+	.card::after {
+		background: $white-smoke;
+	    border-radius: 0 0 5px 6px;
+	    bottom: -4px;
+	    content: "";
+	    height: 4px;
+	    left: 15px;
+	    position: absolute;
+	    right: 15px;
+	}
+	.card:hover::after {
+		background: $dark-gray;
+	}
+}
+
+// Video Cards Styling
 
 .video {
 

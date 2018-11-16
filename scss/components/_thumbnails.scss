@@ -6,12 +6,17 @@
 
 .thmb {
 	border-radius: 50%;
+	@include thmby (66px, 66px);
 }
 
-[class*="thmb-s"] {
-	@include thmby (66px, 66px);
-	margin-bottom: 8px;
+.section-categories [class*="thmb-s"] {
 	transition: transform 0.25s;
+	margin-bottom: 8px;
+}
+
+.section-popular [class*="thmb-s"] {
+	@include thmby (80px, 80px);
+	margin-bottom: 8px;
 }
 
 // Specific styling

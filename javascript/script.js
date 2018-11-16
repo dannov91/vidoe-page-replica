@@ -1,10 +1,18 @@
 /*Variable Declarations*/
 
+// Selection - Carousel
+
+let catCards = document.querySelector('.section-categories ul');
+let carouselWidth = catCards.parentNode.offsetWidth;
+let sumRight = 0;
+let totalTranslate = 0;
+let totalCarousel = 0;
+
 // Selection - Arrows and Card Categories
 
 const $icnArrowLeft = $('.icn-arrow-left');
 const $icnArrowRight = $('.icn-arrow-right');
-const $card = $('.card');
+const $card = $('.section-categories .card');
 
 // Selection - Video Images
 
@@ -27,14 +35,97 @@ const $darkelmnt = $('.dark');
 // Counters
 
 let counter = 0;
+let carouselRight = 0;
+let rightClick = 0;
+
+// =========== EVENT SECTION ============ //
+
+
+
+
+// Carousel
+
+catCards.style.transition = "transform 1s";
+catCards.style.transform = 'translateX(-' + carouselRight + 'px)';
+
+$icnArrowRight.on('click', function () {
+
+	rightClick += 1;
+	carouselWidth = catCards.parentNode.offsetWidth;
+
+	// The following evaluation was born because the css property "right"
+	// could have a NaN value when the page loaded.
+	// That messed up the calculation.
+
+	if (isNaN(parseInt(catCards.style.right, 10))) {
+		sumRight = 0;
+	} else {
+		sumRight = parseInt(catCards.style.right, 10);
+	}
+
+	carouselRight += carouselWidth;
+	catCards.style.transform = 'translateX(-' + carouselRight + 'px)';
+
+	totalTranslate = parseInt(catCards.style.transform.match(/\d+/)[0]);
+	totalCarousel = totalTranslate + sumRight;
+
+	//
+
+	if (totalCarousel === catCards.offsetWidth) {
+		catCards.style.transform = 'translateX(0px)';
+		catCards.style.right = '0px';
+		carouselRight = 0;
+		sumRight = 0;
+		rightClick = 0;
+		totalCarousel = 0;
+	}
+
+});
+
+$icnArrowLeft.on('click', function () {
+
+	totalTranslate = (catCards.offsetWidth/8)*7;
+
+	if (totalCarousel === 0) {
+		catCards.style.transform = 'translateX(-' + totalTranslate + 'px)';
+		catCards.style.right = '0px';
+		carouselRight = totalTranslate;
+		sumRight = 0;
+		rightClick = 7;
+	}
+
+});
+
+const fixDiff = (width) => { return width/(catCards.offsetWidth/8) }
+
+
+
+
+
+
 
 // Window load - Resizing
 
 $(window).on('load', () => {
 
+	carouselWidth = catCards.parentNode.offsetWidth;
 	$darkelmnt.css("height", $imgHeight.css("height"));
 
 	$(window).on('resize', () => {
+
+		// Carousel Width - Resizing
+
+		let diff = carouselWidth - catCards.parentNode.offsetWidth;
+		catCards.style.right = sumRight - diff*rightClick + 'px';
+
+		// console.log('The diff is: ' + diff);
+		// console.log('diffCarousel Right value: ' + diffCarouselRight);
+		// console.log('Carousel Right value: ' + carouselRight);
+		// console.log('List Item width: ' + catCards.parentNode.offsetWidth);
+		// catCards.style.transform = 'translateX(-' + diffCarouselRight + 'px)';
+
+		// Dark Screen - Resizing
+
 		$darkelmnt.css("height", $imgHeight.css("height"));
 	});
 

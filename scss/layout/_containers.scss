@@ -2,6 +2,8 @@
 //  Layout Container Styles
 // ======================================
 
+// Header Layout
+
 #header {
   height: 59px;
   background: $header-bg-color;
@@ -17,6 +19,8 @@
     background: $white-pure;
   }
 }
+
+// Main Section Layout
 
 #l-main-container {
   display: flex;
@@ -39,11 +43,34 @@
 
   //Channel Categories Display
   .section-categories li:not(:first-of-type) {
-    display: none;
+    // display: none;
   }
 
   //Relative Positioning for Categories' Arrows
   .section-categories {
     position: relative;
+  }
+}
+
+// Footer Layout
+
+#footer {
+  background: $footer-bg-color;
+  padding: 15px 0;
+}
+
+
+//@@@@@@@CAROUSEL EXPERIMENT
+
+.l-card-containers {
+  
+  overflow: hidden;
+  ul {
+    width: 800%;
+    display: flex;
+    position: relative;
+    li {
+      width: 100%;
+    }
   }
 }
