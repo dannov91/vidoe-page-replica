@@ -2,11 +2,15 @@
 
 // Selection - Carousel
 
-let catCards = document.querySelector('.section-categories ul');
-let carouselWidth = catCards.parentNode.offsetWidth;
-let sumRight = 0;
-let totalTranslate = 0;
-let totalCarousel = 0;
+let carousel = document.querySelector('.section-categories ul');
+let carouselVisualWidth = carousel.parentNode.offsetWidth;
+let carouselItemWidth = carousel.firstElementChild.offsetWidth;
+
+let cssRightTracking = 0;		// --> Keeps Track of the carousel's "right" css property
+let totalTranslate = 0;			// --> Used to calculate the Total Translate in each click event in the arrows. Fundamental for reseting positioning.
+let totalCarousel = 0;			// --> Used to calcule the total offset (totalTranslate + cssRightTracking)
+let moveCarousel = 0;			// --> Used to calculate how much the carousel has to translate in each click event in the arrows.
+let clickCount = 0;				// --> Used to compensate the css "right" property
 
 // Selection - Arrows and Card Categories
 
@@ -35,8 +39,6 @@ const $darkelmnt = $('.dark');
 // Counters
 
 let counter = 0;
-let carouselRight = 0;
-let rightClick = 0;
 
 // =========== EVENT SECTION ============ //
 
@@ -45,58 +47,66 @@ let rightClick = 0;
 
 // Carousel
 
-catCards.style.transition = "transform 1s";
-catCards.style.transform = 'translateX(-' + carouselRight + 'px)';
+carousel.style.transition = "transform 1s";
+carousel.style.transform = 'translateX(-' + moveCarousel + 'px)';
 
 $icnArrowRight.on('click', function () {
 
-	rightClick += 1;
-	carouselWidth = catCards.parentNode.offsetWidth;
+	clickCount += 1;
+	carouselItemWidth = carousel.firstElementChild.offsetWidth; // --> Update variable value.
 
 	// The following evaluation was born because the css property "right"
 	// could have a NaN value when the page loaded.
 	// That messed up the calculation.
 
-	if (isNaN(parseInt(catCards.style.right, 10))) {
-		sumRight = 0;
+	if (isNaN(parseInt(carousel.style.right, 10))) {
+		cssRightTracking = 0;
 	} else {
-		sumRight = parseInt(catCards.style.right, 10);
+		cssRightTracking = parseInt(carousel.style.right, 10);
 	}
 
-	carouselRight += carouselWidth;
-	catCards.style.transform = 'translateX(-' + carouselRight + 'px)';
+	moveCarousel += carouselItemWidth;
+	carousel.style.transform = 'translateX(-' + moveCarousel + 'px)';
 
-	totalTranslate = parseInt(catCards.style.transform.match(/\d+/)[0]);
-	totalCarousel = totalTranslate + sumRight;
-
-	//
-
-	if (totalCarousel === catCards.offsetWidth) {
-		catCards.style.transform = 'translateX(0px)';
-		catCards.style.right = '0px';
-		carouselRight = 0;
-		sumRight = 0;
-		rightClick = 0;
-		totalCarousel = 0;
+	if (clickCount >= 8) {
+		carousel.style.transform = 'translateX(0px)';
+		carousel.style.right = '0px';
+		moveCarousel = 0;
+		cssRightTracking = 0;
+		clickCount = 0;
 	}
 
 });
 
 $icnArrowLeft.on('click', function () {
 
-	totalTranslate = (catCards.offsetWidth/8)*7;
+	clickCount -= 1;
+	carouselItemWidth = carousel.firstElementChild.offsetWidth;
 
-	if (totalCarousel === 0) {
-		catCards.style.transform = 'translateX(-' + totalTranslate + 'px)';
-		catCards.style.right = '0px';
-		carouselRight = totalTranslate;
-		sumRight = 0;
-		rightClick = 7;
+	// The following evaluation was born because the css property "right"
+	// could have a NaN value when the page loaded.
+	// That messed up the calculation.
+
+	if (isNaN(parseInt(carousel.style.right, 10))) {
+		cssRightTracking = 0;
+	} else {
+		cssRightTracking = parseInt(carousel.style.right, 10);
+	}
+
+	moveCarousel -= carouselItemWidth;
+	carousel.style.transform = 'translateX(-' + moveCarousel + 'px)';
+
+	if (clickCount < 0) {
+		console.log(clickCount);
+		totalTranslate = (carousel.offsetWidth/8)*7;
+		carousel.style.transform = 'translateX(-' + totalTranslate + 'px)';
+		carousel.style.right = '0px';
+		moveCarousel = totalTranslate;
+		cssRightTracking = 0;
+		clickCount = 7;
 	}
 
 });
-
-const fixDiff = (width) => { return width/(catCards.offsetWidth/8) }
 
 
 
@@ -108,21 +118,15 @@ const fixDiff = (width) => { return width/(catCards.offsetWidth/8) }
 
 $(window).on('load', () => {
 
-	carouselWidth = catCards.parentNode.offsetWidth;
+	carouselItemWidth = carousel.parentNode.offsetWidth;
 	$darkelmnt.css("height", $imgHeight.css("height"));
 
 	$(window).on('resize', () => {
 
 		// Carousel Width - Resizing
 
-		let diff = carouselWidth - catCards.parentNode.offsetWidth;
-		catCards.style.right = sumRight - diff*rightClick + 'px';
-
-		// console.log('The diff is: ' + diff);
-		// console.log('diffCarousel Right value: ' + diffCarouselRight);
-		// console.log('Carousel Right value: ' + carouselRight);
-		// console.log('List Item width: ' + catCards.parentNode.offsetWidth);
-		// catCards.style.transform = 'translateX(-' + diffCarouselRight + 'px)';
+		let diff = carouselItemWidth - carousel.parentNode.offsetWidth;
+		carousel.style.right = cssRightTracking - diff*clickCount + 'px';
 
 		// Dark Screen - Resizing
 
