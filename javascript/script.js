@@ -1,21 +1,10 @@
 /*Variable Declarations*/
 
-// Selection - Carousel
-
-let carousel = document.querySelector('.section-categories ul');
-let carouselVisualWidth = carousel.parentNode.offsetWidth;
-let carouselItemWidth = carousel.firstElementChild.offsetWidth;
-
-let cssRightTracking = 0;		// --> Keeps Track of the carousel's "right" css property
-let totalTranslate = 0;			// --> Used to calculate the Total Translate in each click event in the arrows. Fundamental for reseting positioning.
-let totalCarousel = 0;			// --> Used to calcule the total offset (totalTranslate + cssRightTracking)
-let moveCarousel = 0;			// --> Used to calculate how much the carousel has to translate in each click event in the arrows.
-let clickCount = 0;				// --> Used to compensate the css "right" property
-
 // Selection - Arrows and Card Categories
 
-const $icnArrowLeft = $('.icn-arrow-left');
-const $icnArrowRight = $('.icn-arrow-right');
+const icnArrowLeft = document.querySelector('.icn-arrow-left');
+const icnArrowRight = document.querySelector('.icn-arrow-right');
+
 const $card = $('.section-categories .card');
 
 // Selection - Video Images
@@ -42,117 +31,38 @@ let counter = 0;
 
 // =========== EVENT SECTION ============ //
 
-
-
-
-// Carousel
-
-carousel.style.transition = "transform 1s";
-carousel.style.transform = 'translateX(-' + moveCarousel + 'px)';
-
-$icnArrowRight.on('click', function () {
-
-	clickCount += 1;
-	carouselItemWidth = carousel.firstElementChild.offsetWidth; // --> Update variable value.
-
-	// The following evaluation was born because the css property "right"
-	// could have a NaN value when the page loaded.
-	// That messed up the calculation.
-
-	if (isNaN(parseInt(carousel.style.right, 10))) {
-		cssRightTracking = 0;
-	} else {
-		cssRightTracking = parseInt(carousel.style.right, 10);
-	}
-
-	moveCarousel += carouselItemWidth;
-	carousel.style.transform = 'translateX(-' + moveCarousel + 'px)';
-
-	if (clickCount >= 8) {
-		carousel.style.transform = 'translateX(0px)';
-		carousel.style.right = '0px';
-		moveCarousel = 0;
-		cssRightTracking = 0;
-		clickCount = 0;
-	}
-
-});
-
-$icnArrowLeft.on('click', function () {
-
-	clickCount -= 1;
-	carouselItemWidth = carousel.firstElementChild.offsetWidth;
-
-	// The following evaluation was born because the css property "right"
-	// could have a NaN value when the page loaded.
-	// That messed up the calculation.
-
-	if (isNaN(parseInt(carousel.style.right, 10))) {
-		cssRightTracking = 0;
-	} else {
-		cssRightTracking = parseInt(carousel.style.right, 10);
-	}
-
-	moveCarousel -= carouselItemWidth;
-	carousel.style.transform = 'translateX(-' + moveCarousel + 'px)';
-
-	if (clickCount < 0) {
-		console.log(clickCount);
-		totalTranslate = (carousel.offsetWidth/8)*7;
-		carousel.style.transform = 'translateX(-' + totalTranslate + 'px)';
-		carousel.style.right = '0px';
-		moveCarousel = totalTranslate;
-		cssRightTracking = 0;
-		clickCount = 7;
-	}
-
-});
-
-
-
-
-
-
-
 // Window load - Resizing
 
 $(window).on('load', () => {
 
-	carouselItemWidth = carousel.parentNode.offsetWidth;
 	$darkelmnt.css("height", $imgHeight.css("height"));
 
 	$(window).on('resize', () => {
 
-		// Carousel Width - Resizing
-
-		let diff = carouselItemWidth - carousel.parentNode.offsetWidth;
-		carousel.style.right = cssRightTracking - diff*clickCount + 'px';
-
-		// Dark Screen - Resizing
-
 		$darkelmnt.css("height", $imgHeight.css("height"));
+
 	});
 
 });
 
 /*Channel Categories Arrows Transition*/
 
-$icnArrowLeft.on('mouseover', function () {
-	this.style.backgroundColor = 'black';
-	this.style.color = 'white';
+icnArrowLeft.addEventListener('mouseover', function (event) {
+	icnArrowLeft.style.backgroundColor = 'black';
+	icnArrowLeft.style.color = 'white';
 });
 
-$icnArrowLeft.on('mouseout', function () {
-	this.style.backgroundColor = 'rgb(219, 219, 219)';
+icnArrowLeft.addEventListener('mouseout', function (event) {
+	icnArrowLeft.style.backgroundColor = 'rgb(219, 219, 219)';
 });
 
-$icnArrowRight.on('mouseover', function () {
-	this.style.backgroundColor = 'black';
-	this.style.color = 'white';
+icnArrowRight.addEventListener('mouseover', function (event) {
+	icnArrowRight.style.backgroundColor = 'black';
+	icnArrowRight.style.color = 'white';
 });
 
-$icnArrowRight.on('mouseout', function () {
-	this.style.backgroundColor = 'rgb(219, 219, 219)';
+icnArrowRight.addEventListener('mouseout', function (event) {
+	icnArrowRight.style.backgroundColor = 'rgb(219, 219, 219)';
 });
 
 /*Channel Categories Thumbnail Expand*/

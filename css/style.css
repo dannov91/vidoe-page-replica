@@ -107,12 +107,17 @@ img {
   overflow: hidden;
 }
 .l-card-containers ul {
-  width: 800%;
+  /*  width: 800%;*/
   display: flex;
   position: relative;
+  transition: transform 0.5s;
 }
 .l-card-containers ul li {
   width: 100%;
+}
+
+.noTransition {
+  transition: none !important;
 }
 
 .btn {

@@ -66,11 +66,19 @@
   
   overflow: hidden;
   ul {
-    width: 800%;
+  /*  width: 800%;*/
     display: flex;
     position: relative;
+
+    transition: transform 0.5s;
     li {
       width: 100%;
     }
   }
+
 }
+
+.noTransition {
+  transition: none !important; 
+}
+
