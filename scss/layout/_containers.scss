@@ -64,7 +64,7 @@
 
 .l-card-containers {
   
-  overflow: hidden;
+  overflow-x: hidden;
   ul {
   /*  width: 800%;*/
     display: flex;
@@ -72,7 +72,8 @@
 
     transition: transform 0.5s;
     li {
-      width: 100%;
+     width: 100%;
+     margin: 5px;
     }
   }
 

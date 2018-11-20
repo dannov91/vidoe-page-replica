@@ -1,15 +1,31 @@
 // =========== CAROUSEL ALGORYTHM ============ //
 
+// Carousel Inputs
+
+const timeCounter = 2500; 				// --> Sets the time in ms for actioning carousel
+const margin = "10px";					// --> In-Between List Item Margins
+
 // Initial Variable Declarations --> Selection or Empty Values 
 
 const carousel = document.querySelector('.section-categories ul');
 const childCount = carousel.childElementCount;
 const carouselWidth = carousel.style.width = (childCount*100) + "%";
-
+	  // --> Carousel Total Width is calculated dependant of how many children it has
+	  // --> Media Queries then resize the carousel according to how many childrens are displayed.
 let clickCount = 0;
 let itemsInVisual = 0;
 
+// Margin Values Declaration & Assignment of Margins to List Items
+
+const carouselChilds = carousel.children;
+
+for (const child of carouselChilds) {
+  child.style.marginLeft = margin;
+  child.style.marginRight = margin;
+}
+
 // Media Query Breakpoints for Carousel
+
 const smallBp = matchMedia('(min-width: 576px)');
 const mediumBp = matchMedia('(min-width: 768px)');
 const largeBp = matchMedia('(min-width: 992px)');
@@ -41,8 +57,8 @@ const changeSizeLarge = function(mql) {
 		carousel.style.width = childCount*100/4 + "%";
 		console.log('flag from Large');
 	} else {
-		changeSizeMedium(mediumBp);
 		console.log('Out from Large');
+		changeSizeMedium(mediumBp);
 	}
 }
 
@@ -58,7 +74,7 @@ changeSizeLarge(largeBp);
 	
 	// Main Action Functions
 
-	refreshIntervalId = setInterval( rightClickAction, 2500);
+	refreshIntervalId = setInterval(rightClickAction, timeCounter);
 	icnArrowRight.addEventListener('click', rightClickAction);
 	icnArrowLeft.addEventListener('click', leftClickAction);
 
@@ -69,10 +85,10 @@ changeSizeLarge(largeBp);
 		clearInterval(refreshIntervalId); // --> Clears the accumulated time from refreshInterval Id
 		CSSRightAdjustment ();
 		clickCountSum ("right");
-		moveCarouselAbs("right");
 		maxClicksCalc();
+		moveCarouselAbs("right");
 		initPosRight ();
-		refreshIntervalId = setInterval( rightClickAction, 2500); // --> Creates a new time set Interval 
+		refreshIntervalId = setInterval(rightClickAction, timeCounter); // --> Creates a new time set Interval 
 
 	}
 
@@ -83,10 +99,10 @@ changeSizeLarge(largeBp);
 		clearInterval(refreshIntervalId); // --> Clears the accumulated time from refreshInterval Id
 		CSSRightAdjustment ();
 		clickCountSum ("left");
-		moveCarouselAbs("left");
 		maxClicksCalc();
+		moveCarouselAbs("left");
 		maxPosLeft ();
-		refreshIntervalId = setInterval( rightClickAction, 2500); // --> Creates a new time set Interval 
+		refreshIntervalId = setInterval(rightClickAction, timeCounter); // --> Creates a new time set Interval 
 		
 	}
 
@@ -130,9 +146,25 @@ changeSizeLarge(largeBp);
 
 			if (direction === "right") {
 				let moveCarousel = clickCount*itemWidth;
+
+				// Adjust moveCarousel with margin values, "right" case
+
+				moveCarousel += parseFloat(margin, 10) * 2 * (clickCount);
+
+				// Then move carousel with translateX
+
 				carousel.style.transform = 'translateX(-' + moveCarousel + 'px)';
+
 			} else if (direction === "left") {
 				let moveCarousel = -(clickCount*itemWidth);
+									console.log(moveCarousel);
+
+				// Adjust moveCarousel with margin values, "left" case
+
+				moveCarousel -= parseFloat(margin, 10) * 2 * (clickCount);
+
+				// Then move carousel with translateX
+
 				carousel.style.transform = 'translateX(' + moveCarousel + 'px)';
 			}
 
@@ -163,7 +195,13 @@ changeSizeLarge(largeBp);
 
 		function maxPosLeft () {
 			if (clickCount < 0 ) {
+
 				let moveCarousel = maxClicks*carousel.firstElementChild.offsetWidth;
+
+				// The following code adjusts moveCarousel with margin values, left limit case
+
+					moveCarousel += parseFloat(margin, 10) * 2 * (maxClicks);
+
 				carousel.style.transform = 'translateX(-' + moveCarousel + 'px)';
 				carousel.style.right = '0px';
 				clickCount = maxClicks;
@@ -188,7 +226,8 @@ window.addEventListener('resize', () => {
 	// CSS Re-positioning when Resizing
 
 	let actualPosition = parseInt(carousel.style.transform.match(/\d+/)[0]);
-	let diff = actualPosition - carousel.firstElementChild.offsetWidth*(clickCount);
+	let diff = actualPosition - (carousel.firstElementChild.offsetWidth
+							  + parseFloat(margin, 10) * 2) * (clickCount);
 	carousel.style.right = -diff + 'px'; //--> relative positioning with CSS "right" property
 										 //    using "diff" as guide.
 
