@@ -29,11 +29,7 @@ Elements can be reused and they will not be conflictive if the project grows
 or if they are meant to be used in other projects as well.
 
 2. Modular CSS With SASS, separated in four main categories:
-
-	1.1 Base Styles
-	1.2 Components
-	1.3 Layout
-	1.4 Utilities
+Base Styles, Components, Layout, Utilities.
 
 3. mediaElement.js and its extension mediaElement-plugins.js was used for video
 streaming with desired controls and to make sure cross-browsing coherence.
