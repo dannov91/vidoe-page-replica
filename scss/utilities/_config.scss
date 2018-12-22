@@ -1,0 +1,281 @@
+// ======================================
+//  Variables
+// ======================================
+
+//--------------------------------------
+// Descriptive Color Variables - Color Hues
+//--------------------------------------
+
+//-- BLACK HUE
+$black-pure         : #000000;
+
+//-- BLUE HUE
+$light-slate-blue		: #826CFD;
+$blue-pure				  : #0000ff;
+$mirage					    : #343A40;
+$blue-charcoal      : #23272B;
+
+//-- GREEN HUE
+$shamrock				    : #4EDA92;
+$green-pure			    : #008000;
+
+//-- GREY HUE
+$solitude				    : #e9ecef;
+$zircon             : #ECEFF0;
+$gull-grey          : #9BA8AA;
+$dark-gray				  : #acacac;
+$grey-pure				  : #808080;
+$night-rider        : #333333;
+
+//-- RED HUE
+$red-coral			    : #ff8453;
+$wild-watermelon    : #ff516b;
+$red-orange				  : #ff253A;
+$red-pure				    : #ff0000;
+
+//-- WHITE HUE
+$white-pure         : #ffffff;
+$white-variation    : #fafafa;
+$white-smoke        : #ececec;
+
+//-- UI Components (Excluded from HUE)
+
+$fountain-blue    : #52bab3;
+$emerald          : #5ece7f;
+$sunglo           : #e67478;
+$yellow           : #fffc07;
+$purple-majesty   : #9279c3;
+
+//--------------------------------------
+// Color/Opacity Palettes Modifiers
+//--------------------------------------
+
+$color-palettes: (
+  black: (
+    base      : $black-pure,
+  ),
+  blue:  (
+    light     : $light-slate-blue,
+    base      : $blue-pure,
+    dark      : $mirage,
+    x-dark	  : $blue-charcoal,
+  ),
+  green: (
+    base      : $green-pure,
+    dark      : $shamrock,
+  ),
+  grey:  (
+  	xxx-light : $solitude,
+    xx-light  : $zircon,
+    x-light   : $gull-grey,
+    light     : $dark-gray,
+    base      : $grey-pure,
+    dark      : $night-rider,
+  ),
+  red:   (
+  	xxx-light : $red-coral,
+	  xx-light  : $wild-watermelon,
+	  x-light   : $red-orange,		
+  	base      : $red-pure,
+  	),
+  white: (
+    base      : $white-pure,
+    dark      : $white-variation,
+    x-dark    : $white-smoke,
+  ),
+);
+
+$opacity-palettes: (
+  blue:  (
+  	opaque    : rgba($mirage, 0.5),
+  ),
+  black: (
+  	opaque    : rgba($black-pure, .5),
+  	x-opaque  : rgba($black-pure,.05),
+  ),
+  white: (
+  	opaque    : rgba($white-pure, 0.75),
+    x-opaque  : rgba($white-pure, 0.65),
+    xx-opaque : rgba($white-pure, 0.2),
+  )
+);
+
+$badge-colors: (
+  'blue'      : $fountain-blue,
+  'green'     : $emerald,
+  'red'       : $sunglo,
+  'yellow'    : $yellow,
+  'purple'    : $purple-majesty  
+);
+
+//--------------------------------------
+// Functional Color Variables
+//--------------------------------------
+
+//--Color Gradients
+$gradient-main-nav        : linear-gradient(
+                              135deg,
+                              color-palettes(red , xx-light) 0%,
+                              color-palettes(blue, light   ) 100%
+                            );
+
+$gradient-icn-search      : linear-gradient(
+                              180deg,
+                              color-palettes(grey          ) 1%,
+                              color-palettes(blue, dark    ) 15%
+                            );
+
+$gradient-subs-btn        : linear-gradient(
+                              135deg,
+                              color-palettes(red, x-light  ) 0%,
+                              color-palettes(red, xxx-light) 100%
+                            );
+
+//--Text Colors
+$badge-txt-color-black    :   color-palettes(black            ) ;   // $black-pure;
+$footer-accent-txt-color  :   color-palettes(black            ) ;   // $black-pure;
+$video-stats-txt-color    :   color-palettes(grey , light     ) ;   // $gray-dark;
+$footer-txt-color         :   color-palettes(grey             ) ;   // $gray-pure;
+$icn-menu-txt-color       :   color-palettes(grey , x-light   ) ;   // $gull-grey;
+$headings-txt-color       :   color-palettes(grey, dark       ) ;   // $night-rider;
+$video-tag-txt-color	    :   color-palettes(green, dark      ) ;   // $shamrock;
+$btn-subscribe-txt-color  :   color-palettes(red  , xx-light  ) ;   // $wild-watermelon;
+$card-views-txt-color     :   color-palettes(red  , xx-light  ) ;   // $wild-watermelon;
+$icn-t2-txt-color   	    :   color-palettes(red  , xx-light  ) ;   // $wild-watermelon;
+$video-name-txt-color	    :   color-palettes(red  , xx-light  ) ;   // $wild-watermelon;
+$badge-txt-color-default  :   color-palettes(white            ) ;   // $white-pure;
+$btn-search-txt-color     :   color-palettes(white            ) ;   // $white-pure;
+$icn-arrows-txt-color     :   color-palettes(white            ) ;   // $white-pure;
+$dark-screen-icn-txt-color: opacity-palettes(white, x-opaque  ) ;   // $white-pure;
+$main-nav-txt-color       :   color-palettes(white            ) ;   // $white-pure;
+$icn-t1-txt-color         : opacity-palettes(black, opaque    ) ;
+
+//--Background Colors
+$dark-screen-bg-color	    :   color-palettes(black            ) ;   // $black-pure;
+$footer-bg-color 		      :   color-palettes(grey , xxx-light ) ;   // $solitude;
+$menu-hover-items-bg-color:   color-palettes(grey , xx-light  ) ;   // $zircon;
+$main-sections-bg-color   :   color-palettes(white, dark      ) ;   // $white-pure;
+$card-bg-color            :   color-palettes(white            ) ;   // $white-pure;
+$header-bg-color          :   color-palettes(white            ) ;   // $white-pure;
+$icn-dotted-bg-color      :   color-palettes(white            ) ;   // $white-pure;
+$menu-bg-color			      :   color-palettes(white            ) ;   // $white-pure;
+$srch-input-bg-color      :   color-palettes(white            ) ;   // $white-pure;
+$searchbar-bg-color       :   color-palettes(grey , xx-light  ) ;   // $zircon;
+$main-nav-bg-color        :   $gradient-main-nav                ;
+$btn-search-bg-color      :   $gradient-icn-search              ;
+$btn-scroll-to-top-bg     : opacity-palettes(blue , opaque    ) ;
+
+//--Borders & Box Shadow Colors
+$icn-search-brdr-color    :   color-palettes(black            ) ;   // $black-pure;
+$srch-input-brdr-color    :   color-palettes(grey , x-light   ) ;   // $gull-grey;
+$card-box-shadow-color    :   color-palettes(white, x-dark      ) ;   // $white-smoke;
+$menu-brdr-color		      :   color-palettes(grey , xx-light  ) ;   // $zircon;
+$menu-brdr-hr             : opacity-palettes(black, x-opaque  ) ;
+
+
+//--:hover Colors
+$btn-search-header-hover  :   color-palettes(black            ) ;   // $black-pure;
+$btn-scroll-top-bg-hover  :   color-palettes(blue  , dark     ) ;   // $mirage;
+$btn-subscribe-hover-text :   color-palettes(white            ) ;   // $white-pure;
+$main-nav-item-hover-bg   : opacity-palettes(white , xx-opaque) ;
+$main-nav-item-hover-text : opacity-palettes(white , opaque   ) ;
+
+// Fonts Stacks
+
+$font-family--primary: -apple-system,
+                       BlinkMacSystemFont,
+                       "Segoe UI",
+                       Roboto,
+                       "Helvetica Neue",
+                       Arial,
+                       sans-serif,
+                       "Apple Color Emoji",
+                       "Segoe UI Emoji",
+                       "Segoe UI Symbol",
+                       "Noto Color Emoji";
+
+// Reference Text Size
+
+$base__font-size          : 16px;
+$base__line               : 24px;
+
+// Font Sizes
+
+$fsize-main--headings     : rem(16px);      // Channels, Featured, Popular
+$fsize-secondary--headings: rem(13px);      // Channel/Video names
+$fsize-btn-search-main    : rem(16px);      // Search button from main section
+$fsize-btn-subs           : rem(12px);      // Subscribe button from "Popular Channels"
+$fsize-btn-search-header  : rem(14px);      // Search button from header
+$fsize-nav--icons         : rem(14px);
+$fsize-nav--text          : rem(10px);
+$fsize-extnav--chevron    : rem(10px);      // Chevron is the right arrow of the extended sidenav
+$fsize-extnav--icons      : rem(13px);     
+$fsize-extnav--txt        : rem(13px);
+$fsize-extnav--title-subs : rem(14px);      
+$fsize-input--fields      : rem(13px);
+$fsize-icons--t1          : rem(12px);      // Header Icons: Upload, Notification, Messages, NavIcon, All of Menus Icons
+$fsize-icons--t1-arrows   : rem(13px);      // Carousel Arrows
+$fsize-icons--t2          : rem(13px);      // Dotted and Sort Icons
+$fsize-icons--t3          : rem(13px);      // Icons from tags below video names
+$fsize-icons--t4          : rem(16px);      // "Play Video" Icons
+$fsize-icons--sort        : rem(13px);      // Text from the "sort by"
+$fsize-icons--account     : rem(14px);      // Text from account --> "Osahan"
+$fsize-menu-txt           : rem(12px);
+$fsize-account--txt       : rem(13px);
+$fsize-footer             : rem(13px);
+$fsize-main-text          : rem(11px);
+
+
+// Font Weights
+
+$fweight-thin             : 100;
+$fweight-light            : 300;
+$fweight-medium           : 400;
+$fweight-bold             : 700;
+$fweight-ultra-bold       : 900;
+
+// Navigation/Structural Dimensions
+
+$navWidth         : 90px  ;
+$navWidthExtended : 225px ;
+$headerHeight     : 64px  ;
+
+// Path Assets
+
+$logo-path                : '../img/logo';
+$thumbnails-path          : '../img/thumbnails';
+$apps-path                : '../img/apps';
+$video-img-path           : '../img/video';
+
+// Maps
+
+$thmb-img-path: (
+	's1': '#{$thumbnails-path}/s1',
+	's2': '#{$thumbnails-path}/s2',
+	's3': '#{$thumbnails-path}/s3',
+	's4': '#{$thumbnails-path}/s4',
+	's5': '#{$thumbnails-path}/s5',
+	's6': '#{$thumbnails-path}/s6',
+	's7': '#{$thumbnails-path}/s7',
+	's8': '#{$thumbnails-path}/s8'
+);
+
+// Mixins
+
+@mixin thmby($width, $heigth) {
+	width: $width;
+	height: $heigth;
+	background-size: cover;
+	&:hover {
+		cursor: pointer;
+	}
+}
+
+//breakpoints
+
+$breakpoints: (
+  'sm': 576px,
+  'med': 768px,
+  'lg': 992px,
+  'xl': 1200px
+);

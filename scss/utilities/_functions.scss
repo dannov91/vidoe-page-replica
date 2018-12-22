@@ -2,6 +2,87 @@
 //  Functions
 // ======================================
 
+// Functions and Directives
+
+// 1. Calculate em values
+
+@function rem($target, $context: $base__font-size) {
+  @return ($target / $context) * 1rem;
+}
+  
+// 2. Call the color/opacity palette modifiers
+
+@function color-palettes($palette, $shade: base) {
+  @return map-get(map-get($color-palettes, $palette), $shade);
+}
+
+@function opacity-palettes($palette, $opacity-level) {
+  @return map-get(map-get($opacity-palettes, $palette), $opacity-level);
+} 
+
+// 3. The following function is to ensure the width and height of the icn-t2
+// icons (dotted and sort icons).
+
+@function icn-dim($width) {
+  @return ($width + $width*0.5);
+}
+
+// Mixins
+
+@mixin bg-colors($map) {
+  @each $theme, $color in $map {
+    &--#{$theme} {
+        background-color: $color;
+    }
+  }
+}
+
+@mixin flexy ($flex-disp	: flex,
+			       $flex-wrap   : null, 
+			       $flex-dir		: null,
+			       $just-content: null,
+			       $al-items		: null) {
+	display: $flex-disp;
+	flex-wrap: $flex-wrap;
+	flex-direction: $flex-dir;
+	justify-content: $just-content;
+	align-items: $al-items;
+}
+
+@mixin posity ($position	: static,
+			        $z-value    : null) {
+	position: $position;
+	z-index: $z-value;
+}
+
+@mixin abspos ($top			  : null,
+			        $right		  : null,
+			        $bottom		  : null,
+			        $left			  : null) {
+	top: $top;
+	right: $right;
+	bottom: $bottom;
+	left: $left;
+}
+
+// BEM Mixer Selectors
+
+@mixin element($element) {
+   &__#{$element} {
+    @content;
+   }
+}
+          
+@mixin modifier($modifier) {
+   &--#{$modifier} {
+    @content;
+   }
+}
+
+// -- Unused Functions
+
+/*
+
 @function px-to-pc ($target, $context: $max-width) {
     @return ($target / $context) * 100%;
   }
@@ -10,4 +91,4 @@
     $g-pct: px-to-pc($gutter) * 2;
     $item-g: (100% / $items) - $g-pct;
     @return $item-g;
-  }
+  }*/

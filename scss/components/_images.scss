@@ -2,15 +2,21 @@
 //  Image Styles
 // ======================================
 
-.img-logo {
-	background-image: url('#{$logo-path}/logo.png');
-	background-repeat: no-repeat;
-	width: 88px;
-	height: 29px;
-	margin-right: auto;
-}
+// Block
 
-.img-app {
-	height: 38px;
-	margin: 0 2px;
+.img {
+
+	//Modifiers
+	@include modifier(logo) {
+		width: 88px;
+		height: 29px;
+		@media(min-width: map-get($breakpoints, 'med')) {
+			margin-right: 0;
+		}
+	}
+
+	@include modifier(app) {
+		margin: 0 2px;
+		height: 38px;
+	}
 }

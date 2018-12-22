@@ -1,0 +1,45 @@
+// ======================================
+//  Main Layout
+// ======================================
+
+.l-primary-container {
+  @include flexy;
+  @include posity(relative, 1);
+}
+
+.l-main-nav {
+
+  width: $navWidth;
+
+  // Elements
+  @include element(positioner) {
+    @include posity(fixed);
+    background-image: $main-nav-bg-color;
+    color: $main-nav-txt-color;
+    height: 100vh;
+    width: $navWidth;
+  }
+
+  // Modifiers
+  @include modifier(extended)  {
+    width: $navWidthExtended !important;
+    .l-main-nav__positioner {
+      width: $navWidthExtended !important;
+    }
+  }
+}
+
+.main {
+
+  width: calc(100% - #{$navWidth}); // Default Width
+
+  // Modifiers
+  @include modifier(simplified) {
+    width: calc(100% - #{$navWidthExtended}) !important;
+  }
+
+  @include modifier(expanded) {
+    width: 100% !important;
+  }
+
+}

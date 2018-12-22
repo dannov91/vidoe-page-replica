@@ -1,0 +1,19 @@
+// ======================================
+//  Carousel Styling
+// ======================================
+
+// Block
+
+.carousel {
+  overflow-x: hidden;
+  @include element(container) {
+    display: flex;
+    position: relative;
+    transition: transform 0.5s;
+    margin-bottom: 20px;
+  }
+  @include element(item) {
+     width: 100%;
+     margin: 5px;
+  }
+}

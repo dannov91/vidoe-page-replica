@@ -2,33 +2,75 @@
 //  Button Styles
 // ======================================
 
+// Block
+
 .btn {
+
 	cursor: pointer;
-}
+	
+	// Modifiers
 
-.btn-search {
-	i {
-		font-size: 1rem;
-	}
-	padding: 9px 11px;
-	background-image: $btn-search-bg-color;
-	color: $btn-search-txt-color;
-	border: none;
-	border-bottom: 2px solid $icn-search-brdr-color;
-	border-right: 2px solid $icn-search-brdr-color;
-}
+	@include modifier(search-main) {
 
-.btn-subscribe {
-	font-size: 0.75rem;
-	color: $btn-subscribe-txt-color;
-	border: 1px solid $btn-subscribe-txt-color;
-	border-radius: 3px;
-	padding: 6px 16px;
-	transition: color 0.25s;
-	margin: 3px 0 6px 0;
-	box-shadow: 0 0 11px #ececec;
-	&:hover {
-		background: $gradient-subs-btn;
-		color: $btn-subscribe-hover-text;
+		i {
+			font-size: $fsize-btn-search-main;
+		}
+		padding: 9px 11px;
+		background-image: $btn-search-bg-color;
+		color: $btn-search-txt-color;
+		border: none;
+		border-bottom: 2px solid $icn-search-brdr-color;
+		border-right: 2px solid $icn-search-brdr-color;
+
 	}
+
+	@include modifier(subscribe) {
+
+		font-size: $fsize-btn-subs;
+		color: $btn-subscribe-txt-color;
+		border: 1px solid $btn-subscribe-txt-color;
+		border-radius: 3px;
+		padding: 6px 16px;
+		transition: color 0.25s;
+		margin: 3px 0 6px 0;
+		box-shadow: 0 0 11px #ececec;
+
+		&:hover {
+			background: $gradient-subs-btn;
+			color: $btn-subscribe-hover-text;
+		}
+
+	}
+
+	@include modifier(scroll-top) {
+
+		width: 50px;
+		height: 50px;
+		border-radius: 50%;
+		border: none;
+		background: $btn-scroll-to-top-bg;
+		color: $icn-arrows-txt-color;
+		&:focus { outline: none !important; }
+		&:hover { background: $btn-scroll-top-bg-hover; }
+
+	}
+
+	@include modifier(search-header) {
+
+		height: 38px;
+		width: 38px;
+		border: none;
+		background: $searchbar-bg-color;
+		font-size: $fsize-btn-search-header;
+
+		i {
+			color: $icn-t1-txt-color;
+		}
+
+		&:hover i {
+			color: $btn-search-header-hover;
+		}
+
+	}
+
 }

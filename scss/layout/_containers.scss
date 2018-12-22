@@ -2,84 +2,141 @@
 //  Layout Container Styles
 // ======================================
 
-// Header Layout
+.l-sections {
 
-#header {
-  height: 59px;
-  background: $header-bg-color;
-  position: relative;
-  z-index: 1000;
-  .l-header-container {
+  //Elements
+  @include element(button) {
+    @include posity(fixed, 99);
+    @include abspos(null, 15px, 86px, null);
+      opacity: 0;
+      transition: opacity 0.5s;
+  }
+
+  @media(min-width: map-get($breakpoints, 'xl')) {
+    padding: 30px;
+  }
+
+  > a {
+    position: absolute;
+  }
+  
+  //Relative Positioning for Categories' Arrows
+  .section--categories {
+    position: relative;
+  }
+
+  .section--featured,
+  .section--popular {
+    margin-top: 20px;
+  }
+
+  .section--video {
     width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    padding: 0px 15px;
-    position: fixed;
-    background: $white-pure;
-  }
-}
-
-// Main Section Layout
-
-#l-main-container {
-  display: flex;
-  position: relative;
-  z-index: 1;
-
-  .l-main-nav {
-    width: 90px;
+    @include posity(relative);
   }
 
-}
+  .section--media-info {
+    margin-top: 12px;
+  }
 
-#l-main-content {
-  width: calc(100% - 90px);
-}
-
-.l-main-sections {
   padding: 17px;
   background: $main-sections-bg-color;
 
-  //Channel Categories Display
-  .section-categories li:not(:first-of-type) {
-    // display: none;
-  }
-
-  //Relative Positioning for Categories' Arrows
-  .section-categories {
-    position: relative;
-  }
 }
 
-// Footer Layout
+// Video Section
 
-#footer {
-  background: $footer-bg-color;
-  padding: 15px 0;
+.l-badge {
+
+  @include posity(absolute, 10);
+
+  .video & { 
+    @include abspos(null, 7px, 8px, null);
+    opacity: 0.75;
+  }
+
+  // State Classes 
+
+  .l-header & {
+
+    @include abspos(-8px, null, null, 4px);
+    @media (min-width: map-get($breakpoints, 'xl')) {
+      @include abspos(-8px, null, null, 4px);
+    }
+
+  }
+
+  .subs-nav & {
+
+    position: static;
+    margin-left: auto !important;
+
+  }
+
 }
 
+// Channels Section
 
-//@@@@@@@CAROUSEL EXPERIMENT
-
-.l-card-containers {
+.channels-section {
   
-  overflow-x: hidden;
-  ul {
-  /*  width: 800%;*/
-    display: flex;
-    position: relative;
+  margin-bottom: -15px;
 
-    transition: transform 0.5s;
-    li {
-     width: 100%;
-     margin: 5px;
+  @media(min-width: map-get($breakpoints, 'sm')) {
+    margin-bottom: -15px;
+    @include flexy(flex, wrap);
+    @include posity(relative);
+    justify-content: space-between;
+  }
+
+  @include element(item) {
+    margin-bottom: 30px;
+    @media(min-width: map-get($breakpoints, 'sm')) {
+      width: calc(50% - 14px);
+    }
+    @media(min-width: map-get($breakpoints, 'xl')) {
+      width: calc(25% - 22px);
+      margin-bottom: 10px;
     }
   }
 
+  // Specific pseudoelement ::after contained inside popular section;
+
+  &--popular {
+
+    .card::after {
+      background: $white-smoke;
+        border-radius: 0 0 5px 6px;
+        bottom: -4px;
+        content: "";
+        height: 4px;
+        left: 15px;
+        position: absolute;
+        right: 15px;
+    }
+    .card:hover::after {
+      background: $dark-gray;
+    }
+
+  }
+
 }
 
-.noTransition {
-  transition: none !important; 
+// footer container
+
+.l-footer {
+  width: 100%;
+  padding: 15px 0;
+  @media(min-width: map-get($breakpoints, 'sm')) {
+    display: flex;
+  }
+}
+
+// media-playoff video reproduction black screen
+
+.l-media-playoff {
+  // float: left;
+  img {
+    width: 100%;
+  }
 }
 

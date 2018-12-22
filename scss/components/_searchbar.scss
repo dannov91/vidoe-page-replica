@@ -1,23 +1,67 @@
 // ======================================
-// Search Bar Styling
+// Component - Search Bar
 // ======================================
 
+// Blocks
+
 .form {
-	display: flex;
-	width: 100%;
+	
+	@include flexy;
+	
+	// Elements
+	@include element(input) {
+
+		//nested modifiers
+		@include modifier(search-header) { width: 100%; }
+		@include modifier(search-main) {
+
+			width: 100%;
+
+			@media(min-width: map-get($breakpoints, 'med')) {
+				display: none;
+			}
+
+		}
+
+		outline: none;
+		border: none;
+		background: $searchbar-bg-color;
+		font-size: $fsize-input--fields;
+		padding-left: 15px;
+
+	}
+
+	// Modifiers
+
+	@include modifier(search-main) {
+
+		width: 100%;
+		border-top: 1px solid $srch-input-brdr-color;
+		border-bottom: 1px solid $srch-input-brdr-color;
+
+		@media(min-width: map-get($breakpoints, 'med')) {
+			display: none;
+		}
+
+	}
+
 }
 
-.form-search-bar > input {
-	width: 100%;
-	background: $searchbar-bg-color;
-	outline: none;
-	border: none;
-	padding-left: 15px;
-	border-top: 1px solid $srch-input-brdr-color;
-	border-bottom: 1px solid $srch-input-brdr-color;
-	font-size: 0.8rem;
-	&:focus {
-		background: $srch-input-bg-color;
-		border: 1px solid #80bdff;
-	}
+// State Classes
+
+.is-input-active-header:focus {
+
+	box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+
 }
+
+.is-input-active-main:focus {
+
+	background: $srch-input-bg-color;
+	border: 1px solid #80bdff;
+
+}
+
+
+
+

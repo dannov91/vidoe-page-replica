@@ -1,0 +1,23 @@
+{
+  "name": "vidoe",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dannov91/vidoe-page-replica.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dannov91/vidoe-page-replica/issues"
+  },
+  "homepage": "https://github.com/dannov91/vidoe-page-replica#readme",
+  "dependencies": {
+    "mediaelement": "^4.2.9",
+    "mediaelement-plugins": "^2.5.0"
+  }
+}

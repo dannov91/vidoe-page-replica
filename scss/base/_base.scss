@@ -16,30 +16,30 @@ ul li {
 }
 
 body {
-  /*color: $color-text;*/
-  font-size: 1rem;
+  font-size: $base__font-size;
+  line-height: ($base__line/$base__font-size);
+  font-family: $font-family--primary;
   margin: 0;
-  font-family: $font-stack-prim;
 }
 
 h1,
 h2,
+h3,
 h6 {
   margin: 0;
-  font-size: 1rem;
+  font-size: $fsize-main--headings;
   color: $headings-txt-color;
-  font-weight: 600;
+  font-weight: $fweight-bold;
 }
 
 h6 {
-  font-size: 0.8125rem;
-  margin-bottom: 7px;
+  font-size: $fsize-secondary--headings;
 }
 
 hr {
 
   border: 0.5px solid rgba(0,0,0,.1);
-  margin-top: 1.95rem;
+  margin: 0;
 
 }
 

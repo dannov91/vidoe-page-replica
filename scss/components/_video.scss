@@ -1,0 +1,204 @@
+// ======================================
+// Component - Video Styles
+// ======================================
+
+// Block, main container
+
+.video-section {
+  @include flexy(flex, wrap);
+  @media(min-width: map-get($breakpoints, 'sm')) {
+    justify-content: space-between;
+  }
+
+  //Element
+  @include element(item) {
+	width: 100%;
+  	margin-bottom: 30px;
+
+	@media(min-width: map-get($breakpoints, 'sm')) {
+		width: calc(50% - 14px);
+	}
+
+	@media(min-width: map-get($breakpoints, 'xl')) {
+		width: calc(25% - 22px);
+	}
+
+  }
+
+}
+
+// Block, video cards
+
+.video {
+
+	box-shadow: 0 0 11px #ececec;
+	width: 100%;
+	overflow: hidden;
+	border-radius: 4px;
+
+	@include element(picture) {
+		@include posity(relative);
+		@include flexy;
+		height: 100%;
+		width: 100%;
+	}
+
+	img {
+		width: 100%;
+		height: 100%;
+	}
+
+	@include element(info) {
+		background: $card-bg-color;
+		padding: 8px 12px 12px;
+	}
+
+	@include element(tag) {
+		font-size: $fsize-main-text;
+		color: $video-tag-txt-color;
+		margin-bottom: 5px;
+	}
+	@include element(stats) {
+		font-size: $fsize-main-text;
+		color: $video-stats-txt-color;
+	}
+
+}
+
+// State Classes.
+
+.is-video-hovered  { // Considered as default for every video item
+
+	.title__heading:hover { color: $video-name-txt-color; }
+
+	a:hover .dark-screen { opacity: 1; }
+
+	.video__picture:hover .l-badge { opacity: 1; }
+
+}
+
+// Special Object from Video Component: the dark screen
+
+.video__picture {
+
+	.dark-screen {
+
+		@include flexy(flex, null, null, center, center);
+		@include posity(absolute);
+		@include abspos(0);
+		width: 100%;
+		height: 100%;
+		background: rgba($dark-screen-bg-color, 0.35);
+		opacity: 0;
+		transition: opacity 0.25s;
+		i {
+			opacity: 0;
+			transition: transform 0.5s, opacity 0.25s;
+			color: $dark-screen-icn-txt-color;
+		}
+
+	}
+
+	&:hover .dark-screen i {
+		transform: scale(2.5);
+		opacity: 1;
+	}
+
+}
+
+//----------------------------------------
+// media playoff
+//----------------------------------------
+
+// Block
+
+#mep_0 {
+	/*width: 100% !important;*/
+}
+
+.media-playoff {
+	
+	/*width: 100%;
+	top: 0px;
+	position: absolute;*/
+
+}
+
+// Block
+
+.media-info {
+
+	@include flexy (flex, wrap, null, space-between, center);
+	margin-bottom: 10px;
+
+	//Elements
+	@include element(views) {
+
+		@media(min-width: map-get($breakpoints, 'lg')) {
+			width: auto;
+			margin-right: auto;
+			span {
+				font-size: 1rem !important;
+			}
+		}
+
+		width: 100%;
+		span {
+			color: $icn-t1-txt-color;
+			font-size: 0.7rem;
+		}
+
+	}
+
+	@include element(more) {
+		@include posity(relative);
+		margin-left: 20px;
+	}
+
+	@include element(thmb-up) {
+		flex-grow: 1;
+		text-align: center;
+		padding: 6px 0;
+		@media(min-width: map-get($breakpoints, 'lg')) {
+			flex-grow: 0;
+			padding: 8px 21px;
+		}
+	}
+
+	@include element(thmb-down) {
+		flex-grow: 1;
+		text-align: center;
+		padding: 6px 0;
+		@media(min-width: map-get($breakpoints, 'lg')) {
+			flex-grow: 0;
+			padding: 8px 21px;
+		}
+	}
+
+	@include element(share) {
+		flex-grow: 1;
+		text-align: center;
+		padding: 6px 0;
+		@media(min-width: map-get($breakpoints, 'lg')) {
+			flex-grow: 0;
+			padding: 8px 21px;
+		}
+	}
+
+	@include element(save) {
+		flex-grow: 1;
+		text-align: center;
+		padding: 6px 0;
+		@media(min-width: map-get($breakpoints, 'lg')) {
+			flex-grow: 0;
+			padding: 8px 21px;
+		}
+	}
+
+}
+
+// Block
+
+.media-description {
+	margin-top: 10px;
+}

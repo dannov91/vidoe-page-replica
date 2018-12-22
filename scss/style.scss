@@ -3,25 +3,33 @@
 // ======================================
 
 // Utilities
-@import 'utilities/variables';
+@import 'utilities/functions';
+@import 'utilities/config';
         
 // Base Styles     
 @import 'base/base';
 
 // Layout Styles
-@import 'layout/containers';
+@import 'layout/containers',
+        'layout/header',
+        'layout/main',
+        'layout/footer';
  
 
 // Component Styles
-@import 'components/buttons',
+@import 'components/titles',
+	'components/buttons',
+        'components/carousel',
         'components/icons',
         'components/images',
         'components/thumbnails',
         'components/badges',
         'components/nav',
         'components/searchbar',
+        'components/video',
         'components/cards',
-        'components/footer';
+        'components/footer',
+        'components/menus';
 
 
 

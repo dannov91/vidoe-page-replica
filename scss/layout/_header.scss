@@ -1,0 +1,108 @@
+// ======================================
+//  Header Layout
+// ======================================
+
+#header { @include posity(relative, 1000); }
+
+.l-header {
+
+  //Elements
+  @include element(container) {
+    @include flexy(flex, wrap, null, null, center);
+    @include posity(fixed);
+    height: $headerHeight;
+    width: 100%;
+    padding: 0px 15px;
+    background: $header-bg-color;
+  }
+
+  @include element(logo) { margin-right: auto; }
+
+  $elements-with-icons: (upload, notif, messages, account);
+
+  @each $element in $elements-with-icons {
+
+    @include element($element) {
+
+      @media (min-width: map-get($breakpoints, 'xl')) {
+
+        padding: calc((#{$headerHeight} - 16px)/2) 20px;
+
+      }
+      
+      padding: calc((#{$headerHeight} - 16px)/2) 13px;
+
+      &:hover {
+        cursor: pointer;
+      }
+
+      &:hover > .icn-t1 {
+        color: rgba(0,0,0,.7);
+      }
+
+    }
+
+  }
+
+  @include element(account) {
+
+    @media (min-width: map-get($breakpoints, 'xl')) {
+
+      padding: calc((#{$headerHeight} - 30px)/2) 7px;
+      margin-left: 11px;
+
+    }
+
+    padding: calc((#{$headerHeight} - 30px)/2) 7px;
+
+    &:hover {
+      cursor: pointer;
+    }
+    &:hover > .icn-t1 {
+      color: rgba(0,0,0,.7);
+    }
+
+  }
+
+  @include element(nav) {
+
+    padding: calc((#{$headerHeight} - 19px)/2) 10px;
+    margin-right: -7px;
+    margin-left: 7px;
+
+    @media (min-width: map-get($breakpoints, 'sm')) {
+      order: -1;
+      margin-left: 0;
+      margin-right: 15px;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:hover > .icn-t1 {
+      color: rgba(0,0,0,.7);
+    }
+
+  }
+
+  @include element(form) {
+    width: 50%;
+    margin: 0 auto;
+    display: none;
+    @media(min-width: map-get($breakpoints, 'med')) {
+      display: block;
+    }
+
+  }
+
+  .icn-t1 {
+    @include element(label) {
+      display: none;
+      @media (min-width: map-get($breakpoints, 'xl')) {
+        display: inline;
+      }
+    }
+  }
+
+}

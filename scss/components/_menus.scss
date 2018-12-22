@@ -1,0 +1,57 @@
+// ======================================
+//  Menu Styles
+// ======================================
+
+.menu {
+
+	@include posity(absolute, 10);
+	@include abspos(41px, 0);
+	background: $menu-bg-color;
+	width: 174px;
+	padding: 8px 0;
+	border: 1px solid $menu-brdr-color;
+	cursor: initial;
+
+	// Elements
+	@include element(item) {
+
+		padding: 3px 0;
+		cursor: pointer;
+
+	}
+
+	@include element(divider) {
+
+		margin: 8px 0;
+		border: 0.5px solid $menu-brdr-hr;
+
+	}
+
+	// Modifiers
+
+	@include modifier(account) {
+		@include abspos(49px);
+	}
+
+	@include modifier(main-section) {
+		@include abspos(25px, 0);
+	}
+
+	.icn-t1 {
+	display: flex;
+	align-items: center;
+	padding: 6px 14px;
+	margin: 0;
+	span {
+		margin-left: 7px;
+		font-size: $fsize-menu-txt;
+		}
+	}
+	
+}
+
+// State Classes
+
+.is-menu-hovered > li:hover {
+	background: $menu-hover-items-bg-color;
+}

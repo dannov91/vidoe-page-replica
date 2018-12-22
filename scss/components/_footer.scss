@@ -2,26 +2,62 @@
 //  Footer Components Styling
 // ======================================
 
-.footer-apps {
-	display: flex;
-	justify-content: center;
-}
-
 .footer-info {
-	display: flex;
-	flex-direction: column;
-	align-items: center;
+
+	@include flexy(flex, null, column, null, center);
 	color: $footer-txt-color;
-	font-size: 0.8125rem;
+	font-size: $fsize-footer;
+	text-align: center;
+
+	@media(min-width: map-get($breakpoints, 'sm')) {
+
+		text-align: left;
+		align-items: flex-start;
+		margin: 0 15px;
+		.footer-author {
+			margin: 0;
+		}
+
+	}
+
+	@media(min-width: map-get($breakpoints, 'xl')) {
+		margin-left: 150px;
+	}
+
 	i,
 	#author {
 		color: $wild-watermelon;
 	}
-	span {
+
+	strong {
 		color: $footer-accent-txt-color;
 	}
+
 	.footer-author {
-		margin: 7px 0;
+		margin-bottom: 7px;
 	}
+
+}
+
+.footer-apps {
+
+	@include flexy(flex, wrap, null, center);
+	
+	@media(min-width: map-get($breakpoints, 'sm')) {
+		@include flexy(flex, nowrap);
+		margin-right: 15px;
+		margin-left: auto;
+	}
+
+	@media(min-width: map-get($breakpoints, 'xl')) {
+		margin-right: 150px;
+	}
+
+	&__android,
+	&__apple {
+		height: auto;
+		margin-top: 5px;
+	}
+
 }
 

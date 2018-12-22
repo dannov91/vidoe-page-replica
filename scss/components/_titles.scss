@@ -1,0 +1,62 @@
+// ======================================
+//  Titles Components
+// ======================================
+
+// Block
+
+.title {
+
+	margin-bottom: 13px;
+
+  // Elements
+
+  @include element(heading) {
+
+  	//nested modifier
+  	@include modifier(subscriptions) {
+
+   	  user-select: none;
+    	font-size: $fsize-extnav--title-subs;
+    	margin: 0px;
+    	color: $main-nav-txt-color;
+
+    }
+
+  }
+
+  @include element(heading) {
+
+    //nested modifier
+
+    @include modifier(video){
+
+  	 font-size: 0.8rem;
+     font-weight: 500;
+     @media(min-width: map-get($breakpoints, 'lg')) {
+       font-size: 1rem;
+     }
+
+    }
+
+  }
+
+  // Modifiers
+
+  $title-sections: ('categories', 'popular', 'featured', 'video');
+
+  @each $title in $title-sections {
+
+  	@include modifier($title) {
+
+  		@include flexy(flex, null, null, space-between, center);
+    	@include posity(relative);
+
+  	}
+
+  }
+
+  @include modifier(channel) { margin-bottom: 0px; } 
+  @include modifier(subscriptions) { margin: 15px; }
+  @include modifier(video) { margin-bottom: 0px; }
+
+}

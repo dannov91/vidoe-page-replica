@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Vidoe - Video Streaming Website</title>
+	<meta name="viewport" content="width=device-width">
+
+	<!-- Normalize Stylesheet -->
+	<link rel="stylesheet" href="../css/normalize/normalize.css">
+
+	<!-- Main Stylesheet -->
+	<link rel="stylesheet" href="../css/style.css">
+
+    <!-- Variation Stylesheet -->
+    <link rel="stylesheet" href="../css/pages/video-page-style.css">
+
+	<!-- Font Awesome 5 Icons Library -->
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
+    <!-- Tab Icon -->
+    <link rel="icon" href="../img/logo/site-thmb.png">
+
+    <!-- JQuery CDN -->
+
+  	<script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+
+    <!-- ############################################# -->
+
+    <!-- Media Element Player Main JS -->
+
+    <script src="../foldermodules/mediaelement/build/mediaelement-and-player.min.js"></script>
+    
+    <!-- Skip back JS -->
+
+    <script src="../foldermodules/mediaelement-plugins/dist/skip-back/skip-back.min.js"></script>
+    <script src="../foldermodules/mediaelement-plugins/dist/skip-back/skip-back-i18n.js"></script>
+
+    <!-- Speed JS -->
+
+    <script src="../foldermodules/mediaelement-plugins/dist/speed/speed.min.js"></script>
+    <script src="../foldermodules/mediaelement-plugins/dist/speed/speed-i18n.js"></script>
+
+    <!-- ############################################# -->
+
+    <!-- Media Element Player Main CSS -->
+
+    <link href="../foldermodules/mediaelement/build/mediaelementplayer.css" rel="stylesheet">
+
+    <!-- Skip Back CSS -->
+
+    <link href="../foldermodules/mediaelement-plugins/dist/skip-back/skip-back.css" rel="stylesheet">
+
+    <!-- Jump Forward CSS -->
+
+    <link href="../foldermodules/mediaelement-plugins/dist/jump-forward/jump-forward.css" rel="stylesheet">
+
+    <!-- Speed CSS -->
+
+    <link href="../foldermodules/mediaelement-plugins/dist/speed/speed.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <header id="header" class="l-header">
+        <ul class="l-header__container">
+            <li class="l-header__logo">
+                <div class="img img--logo">
+                    <a href="../index.html">
+                        <img src="../img/logo/logo.png" alt="">
+                    </a>
+                </div>
+            </li>
+            <li class="l-header__form">
+                <form class="form form--search-header" action="post">
+                    <input class="form__input form__input--search-header is-input-active-header" type="text" name="search-bar-header" placeholder="Search for...">
+                    <button class="btn btn--search-header" type="submit" >
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            </li>
+            <li class="l-header__upload">
+                <div class="icn-t1 icn-t1--upload">
+                    <i class="fas fa-plus-circle"></i>
+                    <span class="icn-t1__label">Upload Video</span>
+                </div>
+            </li>
+            <li class="l-header__notif">
+                <div class="icn-t1 icn-t1--notif">
+                    <div class="menu menu--general" style="display: none;">
+                        <ul class="menu__container is-menu-hovered">
+                            <li class="menu__item">
+                            <div class="icn-t1 icn-t1--edit">
+                                <i class="fas fa-fw fa-edit"></i>
+                                <span>Action</span>
+                            </div>
+                            </li>
+                            <li class="menu__item">
+                                <div class="icn-t1 icn-t1--headphones">
+                                <i class="fas fa-fw fa-headphones-alt"></i>
+                                <span>Another action</span>
+                            </div>
+                            </li>
+                            <li class="menu__divider-container">
+                                <hr class="menu__divider">
+                            </li>
+                            <li class="menu__item">
+                                <div class="icn-t1 icn-t1--star">
+                                <i class="fas fa-fw fa-star"></i>
+                                <span>Something else here</span>
+                            </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <i class="fas fa-bell"></i>
+                    <div class="l-badge">
+                        <div class="badge badge--red">9+</div>
+                    </div>
+                </div>
+            </li>
+            <li class="l-header__messages">
+                <div class="icn-t1 icn-t1--msg">
+                    <div class="menu menu-general" style="display: none;">
+                        <ul class="menu__container is-menu-hovered">
+                            <li class="menu__item">
+                            <div class="icn-t1 icn-t1--edit">
+                                <i class="fas fa-fw fa-edit"></i>
+                                <span>Action</span>
+                            </div>
+                            </li>
+                            <li class="menu__item">
+                                <div class="icn-t1 icn-t1--headphones">
+                                <i class="fas fa-fw fa-headphones-alt"></i>
+                                <span>Another action</span>
+                            </div>
+                            </li>
+                            <li class="menu__divider-container">
+                                <hr class="menu__divider">
+                            </li>
+                            <li class="menu__item">
+                                <div class="icn-t1 icn-t1--star">
+                                <i class="fas fa-fw fa-star"></i>
+                                <span>Something else here</span>
+                            </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <i class="fas fa-envelope"></i>
+                    <div class="l-badge">
+                        <div class="badge badge--green">7</div>
+                    </div>
+                </div>
+            </li>
+            <li class="l-header__account">
+                <div class="icn-t1 icn-t1--account">
+                    <div class="menu menu--account" style="display: none;">
+                        <ul class="menu__container is-menu-hovered">
+                            <li class="menu__item">
+                                <div class="icn-t1 icn-t1--edit">
+                                    <i class="fas fa-fw fa-user-circle"></i>
+                                    <span>My Account</span>
+                                </div>
+                            </li>
+                            <li class="menu__item">
+                                <div class="icn-t1 icn-t1--headphones">
+                                    <i class="fas fa-fw fa-video"></i>
+                                    <span>Subscriptions</span>
+                                </div>
+                            </li>
+                            <li class="menu__item">
+                                <div class="icn-t1 icn-t1--config">
+                                    <i class="fas fa-fw fa-cog"></i>
+                                    <span>Settings</span>
+                                </div>
+                            </li>
+                            <li class="menu__divider-container">
+                                <hr class="menu__divider">
+                            </li>
+                            <li class="menu__item">
+                                <div class="icn-t1 icn-t1--sign-out">
+                                    <i class="fas fa-fw fa-sign-out-alt"></i>
+                                    <span>Logout</span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <img src="../img/thumbnails/s9.png" alt="">
+                    <span class="account-name">Osahan</span>
+                </div>
+            </li>
+            <li class="l-header__nav">
+                <div class="icn-t1 icn-t1--menu">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </li>
+        </ul>
+    </header>
+    <div class="l-primary-container">
+        <div class="l-main-nav" style="display: block;">
+            <div class="l-main-nav__positioner">
+                <nav class="main-nav">
+                    <ul class="main-nav__container is-nav-hovered">
+                        <li class="main-nav__item">
+                            <a class="main-nav__link main-nav__link--highlight" href="../index.html"><i class="fas fa-fw fa-home"></i><span>Home</span>
+                            </a>
+                        </li>
+                        <li class="main-nav__item">
+                            <a class="main-nav__link" href=""><i class="fas fa-fw fa-users"></i><span>Channels</span></a>
+                        </li>
+                        <li class="main-nav__item">
+                            <a class="main-nav__link" href="">
+                                <i class="fas fa-fw fa-user-alt"></i><span>Single Channel</span>
+                            </a>
+                        </li>
+                        <li class="main-nav__item">
+                            <a class="main-nav__link" href="">
+                                <i class="fas fa-fw fa-video"></i><span>Video Page</span>
+                            </a>
+                        </li>
+                        <li class="main-nav__item">
+                            <a class="main-nav__link" href="">
+                                <i class="fas fa-fw fa-cloud-upload-alt"></i><span>Upload Video</span>
+                            </a>
+                        </li>
+                        <li class="main-nav__item">
+                            <a class="main-nav__link" href=""><i class="fas fa-fw fa-folder"></i><span>Pages</span><i class="fa fa-chevron-right"></i>
+                            </a>
+                        </li>
+                        <li class="main-nav__item">
+                            <a class="main-nav__link" href=""><i class="fas fa-fw fa-history"></i><span>History Page</span>
+                            </a>
+                        </li>
+                        <li class="main-nav__item">
+                            <a class="main-nav__link" href=""><i class="fas fa-fw fa-list-alt"></i><span>Categories</span><i class="fa fa-chevron-right"></i>
+                            </a>
+                        </li>
+                    </ul>
+                </nav>
+                <nav class="subs-nav">
+                    <hr class="subs-nav__divider">
+                    <div class="title title--subscriptions">
+                        <h3 class="title__heading title__heading--subscriptions">SUBSCRIPTIONS</h3>
+                    </div>
+                    <ul class="subs-nav__container is-subs-hovered">
+                        <li class="subs-item"><a class="subs-item__link" href=""><img src="" alt=""><span>Your Life</span></a></li>
+                        <li class="subs-item">
+                            <a class="subs-item__link" href=""><img src="" alt="">
+                            <span>Unboxing</span>
+                            <div class="l-badge">
+                                <div class="badge badge--yellow badge--nav">2</div>
+                            </div>
+                            </a>
+                        </li>
+                        <li class="subs-item"><a class="subs-item__link" href=""><img src="" alt=""><span>Product / Service</span></a></li>
+                        <li class="subs-item"><a class="subs-item__link" href=""><img src="" alt=""><span>Gaming</span></a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    <main id="main" class="main">
+
+        <form class="form form--search-main" action="post">
+            <input class="form__input form__input--search-main is-input-active-main" type="text" name="search-bar" placeholder="Search for...">
+            <button class="btn btn--search-main" type="submit" >
+                <i class="fas fa-search"></i>
+            </button>
+        </form>
+
+        <div class="l-sections">
+
+            <section class="section section--video">
+
+                <div class="media-playoff">
+
+                    <video class="media-playoff__video" width="100%" height="100%" muted autoplay
+                      data-cast-title="Test Video"
+                      data-cast-description="Any Description">
+
+                        <source src="../video/peoplewalking.mp4" type="video/mp4">
+                        <source src="../video/peoplewalking.ogg" type="video/ogg">
+                    </video>
+
+                    <script>
+
+                    const mediaPlayoffVideo = $('video');
+                      
+                      mediaPlayoffVideo.mediaelementplayer({
+                        features: ['playpause', 'volume','speed', 'skipback', 'progress', 'fullscreen'],
+                        startLanguage: "en",
+                        skipBackInterval: 4,
+                        jumpForwardInterval: 4,
+                      });
+
+
+                    // NOTE: failed autoplay without muted attribute, uncomment below to see issue:
+                    // mediaPlayoffVideo[0].play().catch(function(error) {
+                    //   console.log(error.message);
+                    // });
+                      
+                    </script>
+
+                </div>
+
+            </section>
+
+            <section class="section section--media-info">
+
+                <div class="title title--video">
+                    <h2 class="title__heading title__heading--video">There are many variations of passages of Lorem</h2>
+                </div>
+                <ul class="media-info">
+                    <li class= "media-info__views">
+                        <span>5.937.275 views</span>
+                    </li>
+                    <li class="icn-t1 media-info__thmb-up">
+                        <i class="fas fa-thumbs-up"></i>
+                        <span class="icn-t1__label">25K</span>
+                    </li>
+                    <li class="icn-t1 media-info__thmb-down">
+                        <i class="fas fa-thumbs-down"></i>
+                        <span class="icn-t1__label">353</span>
+                    </li>
+                    <li class="icn-t1 media-info__share">
+                        <i class="fas fa-share"></i>
+                        <span class="icn-t1__label">Share</span>
+                    </li>
+                    <li class="icn-t1 media-info__save">
+                        <i class="fas fa-plus-square"></i>
+                        <span class="icn-t1__label">Save</span>
+                    </li>
+                </ul>
+            </section>
+        </div>
+
+    </main>
+
+</div>
+
+    <footer id="footer">
+        <div class="footer-pseudo"></div>
+        <div class="l-footer">
+            <div class="footer-info">
+                <div class="footer-info__copyright">&copy; Copyright 2018 <strong>Vidoe</strong>. All Rights Reserved</div>
+                <div class="footer-info__author"><small>Made with <i class="fas fa-heart"></i> by <a href=""><span id="author">Mapacho</span></a></small></div>
+            </div>
+            <div class="footer-apps">
+                <a class="footer-apps__android" href=""> <img class="img img--app" src="https://askbootstrap.com/preview/vidoe/img/google.png" alt=""></a>
+                <a class="footer-apps__apple" href=""><img class="img img--app" src="https://askbootstrap.com/preview/vidoe/img/apple.png" alt=""></a>
+            </div>
+        </div>
+    </footer>
+
+    <div class="scripts-container">
+      <!-- jQuery CDN -->
+      <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
+      <!-- script.js -->
+      <script src="../javascript/videoPageScript.js"></script>
+    </div>
+	
+</body>
+
+</html>
