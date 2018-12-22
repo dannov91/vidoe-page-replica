@@ -1,0 +1,49 @@
+//----------------------------------------
+// Component - Media
+//----------------------------------------
+
+// Block
+
+.media-info {
+
+	@include flexy (flex, wrap, null, space-between, center);
+
+	//Elements
+	@include element(views) {
+
+		@media(min-width: map-get($breakpoints, 'lg')) {
+			width: auto;
+			margin-right: auto;
+			span {
+				font-size: $fsize-main--headings !important;
+			}
+		}
+
+		width: 100%;
+		margin-bottom: 10px;
+
+		span {
+			color: $icn-t1-txt-color;
+			font-size: $fsize-main-text;
+		}
+
+	}
+
+	@include element(more) {
+		@include posity(relative);
+		margin-left: 20px;
+	}
+
+	// type 1 icons take context according to media:
+
+	.icn-t1 {
+		flex-grow: 1;
+		text-align: center;
+		padding: 6px 0;
+		@media(min-width: map-get($breakpoints, 'lg')) {
+			flex-grow: 0;
+			padding: 8px 21px;
+		}
+	}
+
+}

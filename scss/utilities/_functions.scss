@@ -1,5 +1,5 @@
 // ======================================
-//  Functions
+//  Functions & Mixins
 // ======================================
 
 // Functions and Directives
@@ -77,6 +77,17 @@
    &--#{$modifier} {
     @content;
    }
+}
+
+// Thmbs get correct config mixin
+
+@mixin thmby($width, $heigth) {
+  width: $width;
+  height: $heigth;
+  background-size: cover;
+  &:hover {
+    cursor: pointer;
+  }
 }
 
 // -- Unused Functions

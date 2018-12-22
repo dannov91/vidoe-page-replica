@@ -5,7 +5,7 @@
 .menu {
 
 	@include posity(absolute, 10);
-	@include abspos(41px, 0);
+	@include abspos(40px, -15px);
 	background: $menu-bg-color;
 	width: 174px;
 	padding: 8px 0;
@@ -30,7 +30,7 @@
 	// Modifiers
 
 	@include modifier(account) {
-		@include abspos(49px);
+		@include abspos(47px, -5px);
 	}
 
 	@include modifier(main-section) {

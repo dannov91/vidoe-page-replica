@@ -1,3 +1,6 @@
+/* This stylesheet applies only to the video-reproduction page
+Some modifications were needed. */
+
 body {
 	display: flex;
     flex-direction: column;

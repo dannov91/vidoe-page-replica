@@ -2,12 +2,11 @@
 //  Footer Components Styling
 // ======================================
 
+// Block
+
 .footer-info {
 
 	@include flexy(flex, null, column, null, center);
-	color: $footer-txt-color;
-	font-size: $fsize-footer;
-	text-align: center;
 
 	@media(min-width: map-get($breakpoints, 'sm')) {
 
@@ -24,6 +23,10 @@
 		margin-left: 150px;
 	}
 
+	color: $footer-txt-color;
+	font-size: $fsize-footer;
+	text-align: center;
+
 	i,
 	#author {
 		color: $wild-watermelon;
@@ -39,6 +42,8 @@
 
 }
 
+// Block
+
 .footer-apps {
 
 	@include flexy(flex, wrap, null, center);
@@ -52,6 +57,8 @@
 	@media(min-width: map-get($breakpoints, 'xl')) {
 		margin-right: 150px;
 	}
+
+	// Elements
 
 	&__android,
 	&__apple {

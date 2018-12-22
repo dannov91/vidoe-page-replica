@@ -22,18 +22,12 @@
 
     }
 
-  }
+    @include modifier(media){
 
-  @include element(heading) {
-
-    //nested modifier
-
-    @include modifier(video){
-
-  	 font-size: 0.8rem;
-     font-weight: 500;
+     font-size: $fsize-secondary--headings;
+     font-weight: $fweight-high;
      @media(min-width: map-get($breakpoints, 'lg')) {
-       font-size: 1rem;
+       font-size: $fsize-main--headings;
      }
 
     }
@@ -42,7 +36,7 @@
 
   // Modifiers
 
-  $title-sections: ('categories', 'popular', 'featured', 'video');
+  $title-sections: ('categories', 'popular', 'featured', 'video', 'media');
 
   @each $title in $title-sections {
 
@@ -59,4 +53,20 @@
   @include modifier(subscriptions) { margin: 15px; }
   @include modifier(video) { margin-bottom: 0px; }
 
+}
+
+// Isolated Component: sort class, which is the text and icon
+// Located to the right of the main titles of each section;
+
+// Block
+
+.sort {
+  
+  font-size: $fsize-icons--sort;
+  color: $icn-t2-txt-color;
+  &:hover,
+  &:hover i {
+    color: rgba(0,0,0,.7);
+    cursor: pointer;
+  }
 }

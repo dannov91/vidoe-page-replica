@@ -2,13 +2,17 @@
 //  Icon Styles
 // ======================================
 
-// General Class Styling
+//---------------------------------------
+// Type 1 Icons BEM
+//---------------------------------------
+
+// Block
 
 .icn-t1 {
 
+	@include posity(relative);
 	color: $icn-t1-txt-color;
-	font-size: $fsize-icons--t1 ;
-	position: relative;
+	font-size: $fsize-icons--t1;
 	line-height: initial;
 
 	&:hover {
@@ -16,20 +20,66 @@
 		cursor: pointer;
 	}
 
+	// Modifiers
+
+	@include modifier (account) {
+		@include flexy();
+		align-items: center;
+		img {
+			border-radius: 50%;
+			@include thmby (30px, 30px);
+		}
+
+		// Icn-t1 gives context to this unique element
+
+		.account-name {
+			display: none;
+			font-size: $fsize-account--txt;
+			margin-left: 7px;
+			@media (min-width: map-get($breakpoints, 'xl')) {
+				display: block;
+			}
+		}
+	}
+
+	@include modifier (menu) {
+		font-size: $fsize-icons--account;
+		color: $icn-menu-txt-color;
+		margin: 0;
+	}
+
 }
 
-.icn-t2 i {
-	line-height: icn-dim($fsize-icons--t2);
-	width: icn-dim($fsize-icons--t2);
-	text-align: center;
-	color: $icn-t2-txt-color;
-	background: $icn-dotted-bg-color;
-	border-radius: 50%;
-	box-shadow: 0 0 6px #ececec;
-	font-size: $fsize-icons--t2;
+//---------------------------------------
+// Type 2 Icons BEM
+//---------------------------------------
+
+// Block
+
+.icn-t2 {
+
+	position: relative;
+
+	i {
+		line-height: icn-dim($fsize-icons--t2);
+		width: icn-dim($fsize-icons--t2);
+		text-align: center;
+		color: $icn-t2-txt-color;
+		background: $icn-dotted-bg-color;
+		border-radius: 50%;
+		box-shadow: 0 0 6px #ececec;
+		font-size: $fsize-icons--t2;
+	}
+
 }
 
-.icn-t3 i {
+//---------------------------------------
+// Type 3 Icons BEM
+//---------------------------------------
+
+// Block
+
+.icn-t3 {
 	
 	color: $video-tag-txt-color;
 	background: $icn-dotted-bg-color;
@@ -39,35 +89,11 @@
 
 }
 
-// Specific Class Styling
+//---------------------------------------
+// Carousel Special Arrow Icons
+//---------------------------------------
 
-.icn-notif,
-.icn-dotted {
-	position: relative;
-}
-
-.icn-t1--account {
-	display: flex;
-	align-items: center;
-	img {
-		border-radius: 50%;
-		@include thmby (30px, 30px);
-	}
-	.account-name {
-		display: none;
-		font-size: $fsize-account--txt;
-		margin-left: 7px;
-		@media (min-width: map-get($breakpoints, 'xl')) {
-			display: block;
-		}
-	}
-}
-
-.icn-t1--menu {
-	font-size: $fsize-icons--account;
-	color: $icn-menu-txt-color;
-	margin: 0;
-}
+// Block
 
 .icn-arrow {
 	padding: 0;
@@ -96,19 +122,6 @@
 		@media (min-width: map-get($breakpoints, 'xl')) {
 			right: -1%;
 		}
-	}
-}
-
-//Sort Component
-
-.sort {
-	
-	font-size: $fsize-icons--sort;
-	color: $icn-t2-txt-color;
-	&:hover,
-	&:hover i {
-		color: rgba(0,0,0,.7);
-		cursor: pointer;
 	}
 }
 

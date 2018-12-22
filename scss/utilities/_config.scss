@@ -1,9 +1,24 @@
-// ======================================
-//  Variables
-// ======================================
+// ===========================================
+//  CONFIG
+// ===========================================
+
+// NAVIGATION
+
+//---------------------------------------------
+// 1. Descriptive Color Variables - Color Hues
+// 2. Color/Opacity Palettes Modifiers
+// 3. Functional Color Variables
+// 4. Font Stacks
+// 5. Font Config
+// 6. Main Structure Dimensions
+// 7. Path Assets
+// 8. Breakpoints
+//---------------------------------------------
+
+//=============================================
 
 //--------------------------------------
-// Descriptive Color Variables - Color Hues
+// 1. Descriptive Color Variables - Color Hues
 //--------------------------------------
 
 //-- BLACK HUE
@@ -47,7 +62,7 @@ $yellow           : #fffc07;
 $purple-majesty   : #9279c3;
 
 //--------------------------------------
-// Color/Opacity Palettes Modifiers
+// 2. Color/Opacity Palettes Modifiers
 //--------------------------------------
 
 $color-palettes: (
@@ -109,7 +124,7 @@ $badge-colors: (
 );
 
 //--------------------------------------
-// Functional Color Variables
+// 3. Functional Color Variables
 //--------------------------------------
 
 //--Color Gradients
@@ -180,7 +195,9 @@ $btn-subscribe-hover-text :   color-palettes(white            ) ;   // $white-pu
 $main-nav-item-hover-bg   : opacity-palettes(white , xx-opaque) ;
 $main-nav-item-hover-text : opacity-palettes(white , opaque   ) ;
 
-// Fonts Stacks
+//--------------------------------------
+// 4. Fonts Stacks
+//--------------------------------------
 
 $font-family--primary: -apple-system,
                        BlinkMacSystemFont,
@@ -194,12 +211,16 @@ $font-family--primary: -apple-system,
                        "Segoe UI Symbol",
                        "Noto Color Emoji";
 
-// Reference Text Size
+//--------------------------------------
+// 5. Font Config
+//--------------------------------------
 
-$base__font-size          : 16px;
-$base__line               : 24px;
+// Reference Font Sizes
 
-// Font Sizes
+$base__font-size          : 16px;           // Assigned to body's font size
+$base__line               : 24px;           // 24px is the standard line-height, also part of body's rules
+
+// Main Font Sizes
 
 $fsize-main--headings     : rem(16px);      // Channels, Featured, Popular
 $fsize-secondary--headings: rem(13px);      // Channel/Video names
@@ -231,16 +252,21 @@ $fsize-main-text          : rem(11px);
 $fweight-thin             : 100;
 $fweight-light            : 300;
 $fweight-medium           : 400;
+$fweight-high             : 500;
 $fweight-bold             : 700;
 $fweight-ultra-bold       : 900;
 
-// Navigation/Structural Dimensions
+//--------------------------------------
+// 6. Main Structure Dimensions
+//--------------------------------------
 
 $navWidth         : 90px  ;
 $navWidthExtended : 225px ;
 $headerHeight     : 64px  ;
 
-// Path Assets
+//--------------------------------------
+// 7. Path Assets
+//--------------------------------------
 
 $logo-path                : '../img/logo';
 $thumbnails-path          : '../img/thumbnails';
@@ -260,18 +286,9 @@ $thmb-img-path: (
 	's8': '#{$thumbnails-path}/s8'
 );
 
-// Mixins
-
-@mixin thmby($width, $heigth) {
-	width: $width;
-	height: $heigth;
-	background-size: cover;
-	&:hover {
-		cursor: pointer;
-	}
-}
-
-//breakpoints
+//--------------------------------------
+// 8. Breakpoints
+//--------------------------------------
 
 $breakpoints: (
   'sm': 576px,

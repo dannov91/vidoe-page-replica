@@ -10,7 +10,7 @@ Files dir: javascript/modules
 06_mainNavToggling.js
 09_subsThmbAssign.js
 10_headerHeightEqualization.js
-12_mediaPlayoffHeight.js
+12_mediaPlayoffResize.js
 13_footerToggling.js
 
 */
@@ -256,30 +256,18 @@ header.style.height 	= lheader.offsetHeight + "px";
 // 12 - Media Playoff Resize Adjustment
 // --------------------------------------
 
-// After many hours of trying to get this right... This is the way!
-// However, this is not 100% stable... Try rezise and clicking the menu on your own until break it.
+// In very rare cases, this resizing breaks.
 
-const mejsContainer			= document.querySelector('#mep_0');
+const mejsContainer			= document.querySelector('#mep_0'); //--> mediaElement generates this Id.
 const mediaPlayoffVideoItem = document.querySelector('video');
 
 window.addEventListener('load', () => {
 
 	// Calculate width and heigth from the beginning.
 
-	adjustVideoSize();	
-
-});
-
-window.addEventListener('resize', () => {
-
-	// Calculation of 100% width is needed since mediaElement resizes on its own.
-	// This rezise from mediaElement breaks or layout.
-
 	adjustVideoSize();
 
-});
-
-window.addEventListener('load', () => {
+	// Add Event Handler to the menu icon
 
 	menuIcon.addEventListener( 'click', function() {
 
@@ -289,11 +277,26 @@ window.addEventListener('load', () => {
 
 });
 
+window.addEventListener('resize', () => {
+
+	// Calculation of 100% width is needed since mediaElement
+	// resizes on its own, but this resize is not suitable in this case.
+
+	adjustVideoSize();
+
+});
+
 function adjustVideoSize() {
 
+	// Height Assignment/Adjustment
 	mejsContainer.style.width = 'calc(100%)';
 	mediaPlayoffVideoItem.style.width = 'calc(100%)';
+
+	// 1080/1920 is the relation between width/height
+	// necessary for correct height assignment.
 	heightContainer = 1080/1920 * mediaPlayoffVideoItem.offsetWidth + "px";
+
+	// Height Assignment/Adjustment
 	mejsContainer.style.height   = heightContainer;
 	mediaPlayoffVideoItem.style.height = heightContainer;
 
