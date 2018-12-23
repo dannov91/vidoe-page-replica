@@ -2,11 +2,14 @@
 // 05 - Menu toggling - Icons from Main
 // --------------------------------------
 
-const icnMainContent = document.querySelectorAll('.sort--by');
+// Done with jQuery for correct compatibility with
+// mobile devices.
 
-for (let i = 0; i < icnMainContent.length; i++) {
+const $icnMainContent = $('.sort--by');
 
-	let menuTraversing = icnMainContent[i]
+for (let i = 0; i < $icnMainContent.length; i++) {
+
+	let menuTraversing = $icnMainContent[i]
 						.previousElementSibling
 						.previousElementSibling;
 
@@ -14,9 +17,9 @@ for (let i = 0; i < icnMainContent.length; i++) {
 
     let flag = 0;
 
-	window.addEventListener('click', function(event) {
+	$(document).on('click', $icnMainContent[i],  function(event) {
 
-		if (icnMainContent[i].contains(event.target) && flag === 0) {
+		if ($icnMainContent[i].contains(event.target) && flag === 0) {
 	   	 	menuTraversing.style.display = "block";
 	   	 	flag = 1;
 	 	 } else{

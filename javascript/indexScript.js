@@ -107,11 +107,14 @@ $card.on('mouseout', function() {
 // 04 - Menu toggling - Icons from Header
 // --------------------------------------
 
-const icnHeader 	 = document.querySelectorAll(`.l-header__notif, 
-												  .l-header__messages,	
-												  .l-header__account`);
+// Done with jQuery for correct compatibility with
+// mobile devices.
 
-for (let i = 0; i < icnHeader.length; i++) {
+const $icnHeader = $(`.l-header__notif, 
+  					  .l-header__messages,	
+  					  .l-header__account`);
+
+for (let i = 0; i < $icnHeader.length; i++) {
 
 	// Menu is on when clicking the icon
 	// Menu is off when:
@@ -126,12 +129,13 @@ for (let i = 0; i < icnHeader.length; i++) {
 
 	let flag = 0;
 
-	window.addEventListener('click', function(event) {
-		if (icnHeader[i].contains(event.target) && flag === 0){
-	   	 	icnHeader[i].children[0].children[0].style.display = "block";
+	$(document).on('click', $icnHeader[i],  function(event) {
+
+		if ($icnHeader[i].contains(event.target) && flag === 0){
+	   	 	$icnHeader[i].children[0].children[0].style.display = "block";
 	   	 	flag = 1;
 	 	 } else {
-	    	icnHeader[i].children[0].children[0].style.display = "none";
+	    	$icnHeader[i].children[0].children[0].style.display = "none";
 	    	flag = 0;
 	 	 }
 
@@ -143,11 +147,14 @@ for (let i = 0; i < icnHeader.length; i++) {
 // 05 - Menu toggling - Icons from Main
 // --------------------------------------
 
-const icnMainContent = document.querySelectorAll('.sort--by');
+// Done with jQuery for correct compatibility with
+// mobile devices.
 
-for (let i = 0; i < icnMainContent.length; i++) {
+const $icnMainContent = $('.sort--by');
 
-	let menuTraversing = icnMainContent[i]
+for (let i = 0; i < $icnMainContent.length; i++) {
+
+	let menuTraversing = $icnMainContent[i]
 						.previousElementSibling
 						.previousElementSibling;
 
@@ -155,9 +162,9 @@ for (let i = 0; i < icnMainContent.length; i++) {
 
     let flag = 0;
 
-	window.addEventListener('click', function(event) {
+	$(document).on('click', $icnMainContent[i],  function(event) {
 
-		if (icnMainContent[i].contains(event.target) && flag === 0) {
+		if ($icnMainContent[i].contains(event.target) && flag === 0) {
 	   	 	menuTraversing.style.display = "block";
 	   	 	flag = 1;
 	 	 } else{

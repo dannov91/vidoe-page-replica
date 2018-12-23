@@ -19,11 +19,14 @@ Files dir: javascript/modules
 // 04 - Menu toggling - Icons from Header
 // --------------------------------------
 
-const icnHeader 	 = document.querySelectorAll(`.l-header__notif, 
-												  .l-header__messages,	
-												  .l-header__account`);
+// Done with jQuery for correct compatibility with
+// mobile devices.
 
-for (let i = 0; i < icnHeader.length; i++) {
+const $icnHeader = $(`.l-header__notif, 
+  					  .l-header__messages,	
+  					  .l-header__account`);
+
+for (let i = 0; i < $icnHeader.length; i++) {
 
 	// Menu is on when clicking the icon
 	// Menu is off when:
@@ -38,12 +41,13 @@ for (let i = 0; i < icnHeader.length; i++) {
 
 	let flag = 0;
 
-	window.addEventListener('click', function(event) {
-		if (icnHeader[i].contains(event.target) && flag === 0){
-	   	 	icnHeader[i].children[0].children[0].style.display = "block";
+	$(document).on('click', $icnHeader[i],  function(event) {
+
+		if ($icnHeader[i].contains(event.target) && flag === 0){
+	   	 	$icnHeader[i].children[0].children[0].style.display = "block";
 	   	 	flag = 1;
 	 	 } else {
-	    	icnHeader[i].children[0].children[0].style.display = "none";
+	    	$icnHeader[i].children[0].children[0].style.display = "none";
 	    	flag = 0;
 	 	 }
 

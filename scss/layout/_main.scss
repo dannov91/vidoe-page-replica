@@ -16,7 +16,7 @@
     @include posity(fixed);
     background-image: $main-nav-bg-color;
     color: $main-nav-txt-color;
-    height: 100vh;
+    height: 100%;
     width: $navWidth;
   }
 

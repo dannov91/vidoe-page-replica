@@ -9,6 +9,15 @@
     $item-g: (100% / $items) - $g-pct;
     @return $item-g;
   }*/
+body {
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+
+@supports (-webkit-overflow-scrolling: touch) {
+  body {
+    cursor: pointer;
+  }
+}
 * {
   box-sizing: border-box;
 }
@@ -199,56 +208,48 @@ img {
 }
 .l-header__upload {
   padding: calc((64px - 16px)/2) 13px;
+  cursor: pointer;
 }
 @media (min-width: 1200px) {
   .l-header__upload {
     padding: calc((64px - 16px)/2) 20px;
   }
 }
-.l-header__upload:hover {
-  cursor: pointer;
-}
 .l-header__upload:hover > .icn-t1 {
   color: rgba(0, 0, 0, 0.7);
 }
 .l-header__notif {
   padding: calc((64px - 16px)/2) 13px;
+  cursor: pointer;
 }
 @media (min-width: 1200px) {
   .l-header__notif {
     padding: calc((64px - 16px)/2) 20px;
   }
 }
-.l-header__notif:hover {
-  cursor: pointer;
-}
 .l-header__notif:hover > .icn-t1 {
   color: rgba(0, 0, 0, 0.7);
 }
 .l-header__messages {
   padding: calc((64px - 16px)/2) 13px;
+  cursor: pointer;
 }
 @media (min-width: 1200px) {
   .l-header__messages {
     padding: calc((64px - 16px)/2) 20px;
   }
 }
-.l-header__messages:hover {
-  cursor: pointer;
-}
 .l-header__messages:hover > .icn-t1 {
   color: rgba(0, 0, 0, 0.7);
 }
 .l-header__account {
   padding: calc((64px - 16px)/2) 13px;
+  cursor: pointer;
 }
 @media (min-width: 1200px) {
   .l-header__account {
     padding: calc((64px - 16px)/2) 20px;
   }
-}
-.l-header__account:hover {
-  cursor: pointer;
 }
 .l-header__account:hover > .icn-t1 {
   color: rgba(0, 0, 0, 0.7);
@@ -318,7 +319,7 @@ img {
   position: fixed;
   background-image: linear-gradient(135deg, #ff516b 0%, #826CFD 100%);
   color: #ffffff;
-  height: 100vh;
+  height: 100%;
   width: 90px;
 }
 .l-main-nav--extended {
@@ -968,7 +969,7 @@ img {
 .menu {
   position: absolute;
   z-index: 10;
-  top: 40px;
+  top: 39px;
   right: -15px;
   background: #ffffff;
   width: 174px;

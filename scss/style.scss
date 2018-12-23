@@ -3,8 +3,9 @@
 // ======================================
 
 // Utilities
-@import 'utilities/functions';
-@import 'utilities/config';
+@import 'utilities/functions',
+        'utilities/config',
+        'utilities/mobile';
         
 // Base Styles     
 @import 'base/base';

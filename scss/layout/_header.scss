@@ -32,9 +32,7 @@
       
       padding: calc((#{$headerHeight} - 16px)/2) 13px;
 
-      &:hover {
-        cursor: pointer;
-      }
+      cursor: pointer;
 
       &:hover > .icn-t1 {
         color: rgba(0,0,0,.7);

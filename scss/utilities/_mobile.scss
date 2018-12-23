@@ -1,0 +1,21 @@
+// ======================================
+//  Mobile Adjustments
+// ======================================
+
+// No highlighting when tapping in Android or iOS mobile devices
+
+body {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+
+// Styles apply only to iOS mobile devices //
+
+// iOS allows tapping (clicking) ONLY when the element or
+// its children have cursor:pointer
+// applying this to the body element allows tapping everywhere;
+
+@supports (-webkit-overflow-scrolling: touch) {
+  body {
+    cursor: pointer;
+  }
+}
